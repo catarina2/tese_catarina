@@ -1,0 +1,38 @@
+<%= form_for @organism, :html => { :class => "form-horizontal organism" } do |f| %>
+
+    <% if @organism.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@organism.errors.count, "error") %> prohibited this organism from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @organism.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :Rate_of_organism, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tax_org, :class => 'form-control' %>
+    </div>
+    <%= error_span(@organism[:tax_org]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@organism[:name]) %>
+  </div>
+
+  <br />
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            organisms_path, :class => 'btn btn-default' %>
+
+<% end %>

@@ -1,0 +1,40 @@
+<%- model_class = Mutation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:ID) %></th>
+      <th><%= model_class.human_attribute_name(:Nucleotide) %></th>
+      <th><%= model_class.human_attribute_name(:Aminoacid) %></th>
+      <th><%= model_class.human_attribute_name(:HGVS) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mutations.each do |mutation| %>
+      <tr>
+        <td><%= link_to mutation.id, mutation_path(mutation) %></td>
+        <td><%= mutation.nucleotide %></td>
+        <td><%= mutation.aminoacid %></td>
+        <td><%= mutation.hgvs %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.edit")),
+                      mutation_path(mutation), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_mutation_path(mutation), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      mutation_path(mutation),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want delete this mutation?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_mutation_path,
+            :class => 'btn btn-primary' %>

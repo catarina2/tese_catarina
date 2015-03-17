@@ -1,0 +1,45 @@
+<%= form_for @mutation, :html => { :class => "form-horizontal mutation" } do |f| %>
+
+    <% if @mutation.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@mutation.errors.count, "error") %> prohibited this mutation from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @mutation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :Nucleotide, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nucleotide, :class => 'form-control' %>
+    </div>
+    <%= error_span(@mutation[:nucleotide]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Aminoacid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :aminoacid, :class => 'form-control' %>
+    </div>
+    <%= error_span(@mutation[:aminoacid]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :HGVS, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hgvs, :class => 'form-control' %>
+    </div>
+    <%= error_span(@mutation[:hgvs]) %>
+  </div>
+
+  <br />
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            mutations_path, :class => 'btn btn-default' %>
+
+<% end %>

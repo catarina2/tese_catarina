@@ -1,0 +1,42 @@
+<%- model_class = Drug -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:Id) %></th>
+      <th><%= model_class.human_attribute_name(:Reference) %></th>
+      <th><%= model_class.human_attribute_name(:Name) %></th>
+      <th><%= model_class.human_attribute_name(:ATC) %></th>
+      <th><%= model_class.human_attribute_name(:DrugBank) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @drugs.each do |drug| %>
+      <tr>
+        <td><%= link_to drug.id, drug_path(drug) %></td>
+        <td><%= drug.reference %></td>
+        <td><%= drug.name %></td>
+        <td><%= drug.atc %></td>
+        <td><%= drug.drugbank %></td>
+        <td>
+           <%= link_to t('.show', :default => t("helpers.links.show")),
+                      drug_path(drug), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_drug_path(drug), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      drug_path(drug),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want delete the Drug?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_drug_path,
+            :class => 'btn btn-primary' %>

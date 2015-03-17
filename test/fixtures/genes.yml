@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  sequence: MyString
+  reference: 1
+  uniprot: MyString
+  symbol: MyString
+  isolated_id: 
+
+two:
+  name: MyString
+  sequence: MyString
+  reference: 1
+  uniprot: MyString
+  symbol: MyString
+  isolated_id: 

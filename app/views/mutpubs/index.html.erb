@@ -1,0 +1,38 @@
+<%- model_class = Mutpub -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:ID) %></th>
+      <th><%= model_class.human_attribute_name(:Mutation_Associate) %></th>
+      <th><%= model_class.human_attribute_name(:Publication_Associate) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mutpubs.each do |mutpub| %>
+      <tr>
+        <td><%= link_to mutpub.id, mutpub_path(mutpub) %></td>
+        <td><%= mutpub.mutation.nucleotide %></td>
+        <td><%= mutpub.publication.title %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      mutpub_path(mutpub), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_mutpub_path(mutpub), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      mutpub_path(mutpub),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_mutpub_path,
+            :class => 'btn btn-primary' %>

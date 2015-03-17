@@ -1,0 +1,52 @@
+<%= form_for @stat, :html => { :class => "form-horizontal stat" } do |f| %>
+
+    <% if @stat.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@stat.errors.count, "error") %> prohibited this stat from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @stat.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :Number_of_Studies, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :n_studies, :class => 'form-control' %>
+    </div>
+    <%= error_span(@stat[:n_studies]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Information, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :info, :class => 'form-control' %>
+    </div>
+    <%= error_span(@stat[:info]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Choose_Gene, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :gene_id, @genes, :id, :name, prompt: true, :class => 'form-control' %>
+    </div>
+    <%= error_span(@stat[:gene_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Choose_Mutation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :mutation_id, @mutations, :id, :nucleotide, prompt: true, :class => 'form-control' %>
+    </div>
+    <%= error_span(@stat[:mutation_id]) %>
+  </div>
+
+  <br />
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            stats_path, :class => 'btn btn-default' %>
+
+<% end %>

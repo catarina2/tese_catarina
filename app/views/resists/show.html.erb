@@ -1,0 +1,25 @@
+<%- model_class = Resist -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:Reference) %>:</strong></dt>
+  <dd><%= @resist.reference %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:MIC) %>:</strong></dt>
+  <dd><%= @resist.mic %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Drug) %>:</strong></dt>
+  <dd><%= @resist.drug.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Isolated_Resistant) %>:</strong></dt>
+  <dd><%= @resist.isolated.name %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              resists_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_resist_path(@resist), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              resist_path(@resist),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want delete this resistance??')) },
+              :class => 'btn btn-danger' %>

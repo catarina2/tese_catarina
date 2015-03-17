@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Haves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mutation</th>
+      <th>Publication</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @haves.each do |hafe| %>
+      <tr>
+        <td><%= hafe.mutation %></td>
+        <td><%= hafe.publication %></td>
+        <td><%= link_to 'Show', hafe %></td>
+        <td><%= link_to 'Edit', edit_hafe_path(hafe) %></td>
+        <td><%= link_to 'Destroy', hafe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Have', new_hafe_path %>
