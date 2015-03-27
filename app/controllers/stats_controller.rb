@@ -1,10 +1,10 @@
 class StatsController < ApplicationController
   before_action :set_stat, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /stats
   # GET /stats.json
   def index
-    @stats = Stat.all
+     @stats = Stat.all.paginate(:per_page => 3, :page => params[:page])
   end
 
   # GET /stats/1

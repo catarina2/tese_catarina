@@ -12,6 +12,31 @@
   <dd><%= @publication.date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:Journal) %>:</strong></dt>
   <dd><%= @publication.journal %></dd>
+  <hr>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="font-size: 18px" align="center"><b>Mutations Associated: </b></div>
+      
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><%= model_class.human_attribute_name(:Nucleotide) %></th>
+                <th><%= model_class.human_attribute_name(:Aminoacid) %></th>
+                <th><%=t '.actions', :default => t("helpers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @publication.mutations.each do |mutation| %>
+                <tr>
+                  <td><%= mutation.nucleotide %></td>
+                  <td><%= mutation.aminoacid %></td>
+                  <td>
+                    <%= link_to "Go to Mutation", mutation_path(mutation), :class => 'btn btn-info btn-sm' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            </table>
+    </div>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -21,5 +46,5 @@
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               publication_path(@publication),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => 'Are you sure you want to delete this Publication?' },
               :class => 'btn btn-danger' %>

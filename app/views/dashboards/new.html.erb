@@ -1,0 +1,62 @@
+<h1>Dashboard</h1>
+
+<%= form_for @isolated, url:dashboards_path do |f|%>
+  <p>
+    <%= f.label :Name_of_Isolated, :class => 'control-label' %><br />
+    <%= f.text_field :name, :class => 'form-control' %>
+  </p> 
+  <p>
+    <%= f.label :Disease_of_Isolated, :class => 'control-label' %><br />
+    <%= f.text_field :disease, :class => 'form-control' %>
+  </p> 
+  <p>
+    <%= f.label :Number_of_Samples, :class => 'control-label' %><br />
+    <%= f.text_field :n_samples, :class => 'form-control' %>
+  </p> 
+  <p>
+    <%= f.label :Choose_Origin_of_Isolated, :class => 'control-label' %><br />
+    <%= f.collection_select :origin_id, @origins, :id, :origin_t, prompt: true, :class => 'form-control' %>
+  </p> 
+  <p>
+    <%= f.label :Choose_Organism_associated_with_this_Isolated, :class => 'control-label' %><br />
+    <%= f.collection_select :organism_id, @organisms, :id, :name, prompt: true, :class => 'form-control' %>
+  </p> 
+  <h3>Do you want to add to this isolated a gene?</h3>
+      <%= link_to "Go to Drug", "#", :class => 'btn btn-primary', :id => 'xx' %>
+     <script>
+      $("#xx").click(function(){
+          $("#x").show();
+          $("#xx").hide();
+      });
+     </script>
+
+    <div class="panel panel-info" id="x">
+      <div class="panel-heading">Add Gene to this Isolated</div>
+      <div class="panel-body">
+        <%= f.fields_for :genes do |builder| %>
+           <p>
+          <%= builder.label :Name, :class => 'control-label' %><br />
+          <%= builder.text_field :name, :class => 'form-control' %><br />
+           </p>
+           <p>
+          <%= builder.label :Sequence, :class => 'control-label' %><br />
+          <%= builder.text_field :sequence, :class => 'form-control' %><br />
+           </p>
+           <p>
+          <%= builder.label :Reference, :class => 'control-label' %><br />
+          <%= builder.text_field :reference, :class => 'form-control' %><br />
+           </p>
+           <p>
+          <%= builder.label :Uniprot, :class => 'control-label' %><br />
+          <%= builder.text_field :uniprot, :class => 'form-control' %><br />
+           </p>
+           <p>
+          <%= builder.label :Symbol, :class => 'control-label'  %><br />
+          <%= builder.text_field :symbol, :class => 'form-control' %><br />
+           </p>
+        <% end %>
+      </div>
+    </div>
+    <%= f.submit "Submit", :class => 'btn btn-primary'%>
+<% end %>
+

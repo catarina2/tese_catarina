@@ -1,10 +1,14 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.all
+     if params[:search]
+      @publications = Publication.search(params[:search]).order(:title, :author, :date, :journal).paginate(:per_page => 3, :page => params[:page])
+    else
+      @publications = Publication.all.order(:title, :author, :date, :journal).paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /publications/1

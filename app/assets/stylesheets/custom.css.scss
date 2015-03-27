@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.clean {
+	clear: both;
+}
+
+#x {
+	display: none; 
+}
+
+.btn-primary, .btn-danger {
+	color: #fff !important;
+}
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid #000;
+	color: $gray-light;
+	a {
+		color: #100;
+		&:hover {
+			color: #110;
+		}
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 15px;
+		}
+	}
+}
+

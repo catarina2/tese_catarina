@@ -1,10 +1,14 @@
 class OriginsController < ApplicationController
   before_action :set_origin, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /origins
   # GET /origins.json
   def index
-    @origins = Origin.all
+    if params[:search]
+      @origins = Origin.search(params[:search]).order(:origin_t, :lab_name).paginate(:per_page => 3, :page => params[:page])
+    else
+      @origins = Origin.all.order(:origin_t, :lab_name).paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /origins/1

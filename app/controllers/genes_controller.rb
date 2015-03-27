@@ -1,11 +1,15 @@
 class GenesController < ApplicationController
   before_action :set_gene, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
 
   # GET /genes
   # GET /genes.json
   def index
-    @genes = Gene.all
+    if params[:search]
+      @genes = Gene.search(params[:search]).order(:name, :reference).paginate(:per_page => 3, :page => params[:page])
+    else
+      @genes = Gene.all.order(:name, :reference).paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /genes/1

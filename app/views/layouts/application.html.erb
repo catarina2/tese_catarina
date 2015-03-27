@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title><%= content_for?(:title) ? yield(:title) : "Tese1" %></title>
     <%= csrf_meta_tags %>
 
@@ -49,7 +50,10 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav nav-pills">
             <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
-            <li role="presentation"><%= link_to "About", "/path" %></li>
+            <li role="presentation"><%= link_to "Search", "/path" %></li>
+            <% if admin? %>
+            <li role="presentation"><%= link_to "Users", "/path" %></li>
+            <li role="presentation"><%= link_to "DashBoard", "/path" %></li>
             <li role="presentation" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expand="false">Dropdown <span class="caret"></span>
               </a>
@@ -64,8 +68,11 @@
                   <li><%= link_to "Stats", stats_path  %></li>
                   <li><%= link_to "Publications", publications_path  %></li>
                   <li><%= link_to "Mutation/Publication", mutpubs_path  %></li>
+
               </ul>
             </li>
+            <% end %>
+            
           </ul>
           <p class="navbar-text pull-right" >
             <% if user_signed_in? %>
@@ -82,10 +89,9 @@
       <div class="row">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
-          
-          
           <%= yield %>
         </div>
+        <% if admin? %>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
             <h3>Tables</h3>
@@ -104,11 +110,21 @@
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
-
+      <%end%>
+      <div class="clean"></div>
       <footer>
         <br />
-        <p>&copy; Catarina Silva 2015</p>
+        <p>&copy; 2015 - FUNBASE - Todos os direitos Reservados</p>
+
+        <nav>
+          <ul>
+            <li><%= link_to "About Us", "/path"  %></li>
+            <li><%= link_to "FAQ", "/path"  %></li>
+            <li><%= link_to "Contact Us", "/path"  %></li>
+          </ul>
+        </nav>
       </footer>
+
 
     </div> <!-- /container -->
 

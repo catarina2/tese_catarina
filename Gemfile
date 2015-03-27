@@ -1,5 +1,20 @@
 source 'https://rubygems.org'
 
+group :assets do 
+	gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
+	gem 'jquery-ui-rails'
+
+end
+
+gem 'mysql2'
+
+gem 'bootstrap-will_paginate'
+
+gem 'momentjs-rails', '>= 2.9.0'
+
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
 gem 'devise'
 
 gem 'bootstrap-sass', '3.2.0.0'

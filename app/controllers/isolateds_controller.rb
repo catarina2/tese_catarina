@@ -1,10 +1,14 @@
 class IsolatedsController < ApplicationController
   before_action :set_isolated, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /isolateds
   # GET /isolateds.json
   def index
-    @isolateds = Isolated.all
+    if params[:search]
+      @isolateds = Isolated.search(params[:search]).order(:name, :disease).paginate(:per_page => 3, :page => params[:page])
+    else
+      @isolateds = Isolated.all.order(:name, :disease).paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /isolateds/1

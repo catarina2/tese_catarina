@@ -1,10 +1,14 @@
 class OrganismsController < ApplicationController
   before_action :set_organism, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /organisms
   # GET /organisms.json
   def index
-    @organisms = Organism.all
+    if params[:search]
+      @organisms = Organism.search(params[:search]).order(:name, :tax_org).paginate(:per_page => 3, :page => params[:page])
+    else
+      @organisms = Organism.all.order(:name, :tax_org).paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /organisms/1

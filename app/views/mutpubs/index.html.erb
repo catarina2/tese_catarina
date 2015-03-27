@@ -5,10 +5,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:ID) %></th>
-      <th><%= model_class.human_attribute_name(:Mutation_Associate) %></th>
-      <th><%= model_class.human_attribute_name(:Publication_Associate) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th class="info"><%= model_class.human_attribute_name(:ID) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Mutation_Associate) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Publication_Associate) %></th>
+      <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -19,20 +19,23 @@
         <td><%= mutpub.publication.title %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
-                      mutpub_path(mutpub), :class => 'btn btn-default btn-xs' %>
+                      mutpub_path(mutpub), :class => 'btn btn-default btn-sm' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_mutpub_path(mutpub), :class => 'btn btn-default btn-xs' %>
+                      edit_mutpub_path(mutpub), :class => 'btn btn-default btn-sm' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       mutpub_path(mutpub),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+                      :data => { :confirm => 'Are you sure you want delete this association?'},
+                      :class => 'btn btn-sm btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<div class="pager" align="center">
+  <%= will_paginate @mutpubs %>
+</div>
+<hr>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_mutpub_path,
             :class => 'btn btn-primary' %>

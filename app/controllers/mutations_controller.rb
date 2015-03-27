@@ -1,10 +1,14 @@
 class MutationsController < ApplicationController
   before_action :set_mutation, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /mutations
   # GET /mutations.json
   def index
-    @mutations = Mutation.all
+    if params[:search]
+      @mutations = Mutation.search(params[:search]).order(:nucleotide, :aminoacid).paginate(:per_page => 3, :page => params[:page])
+    else
+      @mutations = Mutation.all.order(:nucleotide, :aminoacid).paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /mutations/1

@@ -11,4 +11,5 @@ class CreateResists < ActiveRecord::Migration
     add_foreign_key :resists, :drugs
     add_foreign_key :resists, :isolateds
   end
+
 end

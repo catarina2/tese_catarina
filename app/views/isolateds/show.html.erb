@@ -14,6 +14,59 @@
   <dd><%= @isolated.origin.origin_t %></dd>
   <dt><strong><%= model_class.human_attribute_name(:Organism) %>:</strong></dt>
   <dd><%= @isolated.organism.name %></dd>
+    <hr>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="font-size: 18px" align="center"><b> Drugs Resistance: </b></div>
+      
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><%= model_class.human_attribute_name(:Name) %></th>
+                <th><%= model_class.human_attribute_name(:Reference) %></th>
+                <th><%=t '.actions', :default => t("helpers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @isolated.drugs.each do |drug| %>
+                <tr>
+                  <td><%= drug.name %></td>
+                  <td><%= drug.reference %></td>
+                  <td>
+                    <%= link_to "Go to Drug", drug_path(drug), :class => 'btn btn-info btn-sm' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            </table>
+    </div>
+    <hr>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="font-size: 18px" align="center"><b> Associated Genes: </b></div>
+      
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><%= model_class.human_attribute_name(:Name) %></th>
+                <th><%= model_class.human_attribute_name(:Reference) %></th>
+                <th><%= model_class.human_attribute_name(:Sequence) %></th>
+                <th><%=t '.actions', :default => t("helpers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @isolated.genes.each do |gene| %>
+                <tr>
+                  <td><%= gene.name %></td>
+                  <td><%= gene.reference %></td>
+                  <td><%= gene.sequence %></td>
+                  <td>
+                    <%= link_to "Go to Gene", gene_path(gene), :class => 'btn btn-info btn-sm' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            </table>
+    </div>
+
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -23,5 +76,5 @@
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               isolated_path(@isolated),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete the isolated?')) },
+              :data => { :confirm => 'Are you sure that you want delete this isolated and your genes associated?' },
               :class => 'btn btn-danger' %>

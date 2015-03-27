@@ -1,10 +1,18 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
+  
   # GET /drugs
   # GET /drugs.json
   def index
-    @drugs = Drug.all
+
+    if params[:search]
+      @drugs = Drug.search(params[:search]).order(:name, :reference).paginate(:per_page => 3, :page => params[:page])
+    else
+      @drugs = Drug.all.order(:name, :reference).paginate(:per_page => 3, :page => params[:page])
+    end
+    
+
   end
 
   # GET /drugs/1
@@ -71,4 +79,5 @@ class DrugsController < ApplicationController
     def drug_params
       params.require(:drug).permit(:reference, :name, :atc, :drugbank)
     end
+
 end

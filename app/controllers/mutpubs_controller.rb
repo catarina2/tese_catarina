@@ -1,10 +1,12 @@
 class MutpubsController < ApplicationController
   before_action :set_mutpub, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /mutpubs
   # GET /mutpubs.json
   def index
-    @mutpubs = Mutpub.all
+  
+      @mutpubs = Mutpub.all.paginate(:per_page => 3, :page => params[:page])
+    
   end
 
   # GET /mutpubs/1

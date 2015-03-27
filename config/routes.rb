@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :dash
+  resources :dashboards
+
   resources :mutpubs
 
   devise_for :users

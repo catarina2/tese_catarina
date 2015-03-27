@@ -2,15 +2,22 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= form_tag publications_path, :method => 'get' do %>
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Publication here'%>
+    <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
+  </div>
+<%end%>
+<hr>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:ID) %></th>
-      <th><%= model_class.human_attribute_name(:Author) %></th>
-      <th><%= model_class.human_attribute_name(:Title) %></th>
-      <th><%= model_class.human_attribute_name(:Date) %></th>
-      <th><%= model_class.human_attribute_name(:Journal) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th class="info"><%= model_class.human_attribute_name(:ID) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Author) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Title) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Date) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Journal) %></th>
+      <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -23,20 +30,23 @@
         <td><%= publication.journal %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
-                      publication_path(publication), :class => 'btn btn-default btn-xs' %>
+                      publication_path(publication), :class => 'btn btn-default btn-sm' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_publication_path(publication), :class => 'btn btn-default btn-xs' %>
+                      edit_publication_path(publication), :class => 'btn btn-default btn-sm' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       publication_path(publication),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
+                      :data => { :confirm =>'Are you sure you want delete this publication?'},
+                      :class => 'btn btn-sm btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<div class="pager" align="center">
+  <%= will_paginate @publications %>
+</div>
+<hr>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_publication_path,
             :class => 'btn btn-primary' %>

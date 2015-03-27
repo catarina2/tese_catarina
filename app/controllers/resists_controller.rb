@@ -1,10 +1,10 @@
 class ResistsController < ApplicationController
   before_action :set_resist, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize
   # GET /resists
   # GET /resists.json
   def index
-    @resists = Resist.all
+     @resists = Resist.all.paginate(:per_page => 3, :page => params[:page])
   end
 
   # GET /resists/1
