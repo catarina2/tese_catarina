@@ -1,0 +1,27 @@
+<%= form_for @origin, url:createorigin_index_path do |f|%>
+<%= error_messages_for :origin %>
+      <div class="panel panel-info">
+            <div class="panel-heading"><strong>New Origin</strong></div>
+            <div class="panel-body">
+         <div class="control-group">
+         <%= f.label :Name_of_Laboratory, :class => 'control-label' %>
+         <div class="controls">
+            <%= f.text_field :lab_name, :class => 'form-control' %>
+            </div>
+              <%= error_span(@origin[:lab_name]) %>
+            </div>
+            <br />
+          <div class="control-group">
+          <%= f.label :Type, :class => 'control-label' %><br/>
+          <div class="controls">
+          <%= f.select :origin_t, options_for_select([["In Vitro", "In Vitro"], ["sangue", "sangue"]]), :class => 'form-control' %>
+          </div>
+          <%= error_span(@origin[:origin_t]) %>
+        </div>
+           <br />
+           <br />
+          <span style="position: relative; left: 350px;"><%= f.submit "Submit", :class => 'btn btn-sm active btn-primary'%></span>
+        
+      </div>
+    </div>
+  <%end%>

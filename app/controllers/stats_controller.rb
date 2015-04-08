@@ -1,10 +1,16 @@
 class StatsController < ApplicationController
   before_action :set_stat, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, only: [:show, :edit, :new, :destroy, :update, :create]
+  before_action :set_genmut, only: [:new, :edit, :update, :create]
   # GET /stats
   # GET /stats.json
   def index
-     @stats = Stat.all.paginate(:per_page => 3, :page => params[:page])
+     
+    if params[:search]
+      @stats = Stat.search(params[:search]).paginate(:per_page => 3, :page => params[:page])
+    else
+      @stats = Stat.all.paginate(:per_page => 3, :page => params[:page])
+    end
   end
 
   # GET /stats/1
@@ -15,14 +21,12 @@ class StatsController < ApplicationController
   # GET /stats/new
   def new
     @stat = Stat.new
-    @genes = Gene.all
-    @mutations = Mutation.all
+    @n = params[:new] #gene.id 
+    @nn = params[:newm] #mutation.id
   end
 
   # GET /stats/1/edit
   def edit
-    @genes = Gene.all
-    @mutations = Mutation.all
   end
 
   # POST /stats
@@ -60,7 +64,7 @@ class StatsController < ApplicationController
   def destroy
     @stat.destroy
     respond_to do |format|
-      format.html { redirect_to stats_url, notice: 'Stat was successfully destroyed.' }
+      format.html { redirect_to stas_url, notice: 'Association was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,5 +78,10 @@ class StatsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def stat_params
       params.require(:stat).permit(:n_studies, :info, :gene_id, :mutation_id)
+    end
+
+    def set_genmut
+      @genes = Gene.all
+      @mutations = Mutation.all
     end
 end

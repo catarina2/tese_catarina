@@ -8,21 +8,18 @@
   <br/>
   <dd><b><u><%= model_class.human_attribute_name(:Nucleotide) %>:</u></b> <%= @mutpub.mutation.nucleotide %></dd>
   <dd><b><u><%= model_class.human_attribute_name(:Aminoacid) %>:</u></b> <%= @mutpub.mutation.aminoacid %></dd>
-  <dd> <%= link_to "Go to Mutation", mutation_path(@mutpub.mutation.id), :class => 'btn btn-info btn-sm' %></dd>
+  <dd> <%= link_to "Go to Mutation", mutation_path(@mutpub.mutation.id), :class => 'btn active btn-info btn-sm glyphicon glyphicon-open' %></dd>
   <hr>
   <dt><strong><%= model_class.human_attribute_name(:Publication_Associate) %>:</strong></dt>
   <br/>
   <dd><b><u><%= model_class.human_attribute_name(:Title) %>:</u></b> <%= @mutpub.publication.title %></dd>
   <dd><b><u><%= model_class.human_attribute_name(:Author) %>:</u></b> <%= @mutpub.publication.author%></dd>
-  <dd> <%= link_to "Go to Publication", publication_path(@mutpub.publication.id), :class => 'btn btn-info btn-sm' %></dd>
+  <dd> <%= link_to "Go to Publication", publication_path(@mutpub.publication.id), :class => 'btn active btn-info btn-sm glyphicon glyphicon-open' %></dd>
 </dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              mutpubs_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_mutpub_path(@mutpub), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              mutpub_path(@mutpub),
+<hr>
+<%= link_to " Back", mutpubs_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_mutpub_path(@mutpub), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", mutpub_path(@mutpub),
               :method => 'delete',
               :data => { :confirm => 'Are you sure you want delete this association?' },
-              :class => 'btn btn-danger' %>
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

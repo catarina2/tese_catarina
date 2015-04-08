@@ -1,23 +1,31 @@
 class DashboardsController < ApplicationController
   before_action :set_dashboard, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_dash, only: [:show, :edit, :update, :destroy, :new]
+  before_filter :authorize
   # GET /dashboards
   # GET /dashboards.json
   def index
-    @dashboards = Dashboard.all
+   @isolated  = Isolated.last
+   @drug = Drug.new
+    @mutation = Mutation.new
+    @organism = Organism.new
+    @origin = Origin.new
   end
 
   # GET /dashboards/1
   # GET /dashboards/1.json
   def show
+    
   end
 
   # GET /dashboards/new
   def new
     @isolated = Isolated.new
-    @isolated.genes.new
-    @origins = Origin.all
-    @organisms = Organism.all
+    @drug = Drug.new
+    @mutation = Mutation.new
+    @organism = Organism.new
+    @origin = Origin.new
+   # @isolated.genes.build
   end
 
   # GET /dashboards/1/edit
@@ -29,13 +37,23 @@ class DashboardsController < ApplicationController
   # POST /dashboards.json
   def create
     @isolated = Isolated.new(isolated_params)
-    #@isolateds = Isolated.find(params[:isolated_id])
-    #@gene = @isolateds.genes.create(gene_params)
+    @drug = Drug.new
+    @mutation = Mutation.new
+    @organism = Organism.new
+    @origin = Origin.new
+    @gene = Gene.new
+    @origins = Origin.all
+    @organisms = Organism.all
+    @mutations = Mutation.all
+    @drugs = Drug.all
+    @publications = Publication.all
+    @genes = Gene.all
+
     respond_to do |format|
-      if @isolated.save
-        format.html { redirect_to @isolated, notice: 'Isolated askjhd was successfully created.' }
+    if @isolated.save
+        format.html { redirect_to @isolated, notice: 'Isolated was successfully created.' }
         format.json { render :show, status: :created, location: @isolated }
-      else
+    else
         format.html { render :new }
         format.json { render json: @isolated.errors, status: :unprocessable_entity }
       end
@@ -72,13 +90,49 @@ class DashboardsController < ApplicationController
       @dashboard = Dashboard.find(params[:id])
     end
 
+    def drug_params
+      params.require(:drug).permit(:name, :reference, :atc, :drugbank)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def isolated_params
-      params.require(:isolated).permit(:name, :disease, :n_samples, :origin_id, :organism_id)
+      params.require(:isolated).permit(:name, 
+                                      :disease, 
+                                      :n_samples, 
+                                      :origin_id, 
+                                      :organism_id, 
+                                      genes_attributes: [ :name, 
+                                                          :sequence, 
+                                                          :reference, 
+                                                          :uniprot, 
+                                                          :symbol, 
+                                                          :isolated_id,
+                                                          stats_attributes: [
+                                                                              :n_studies,
+                                                                              :info,
+                                                                              :mutation_id],
+                                                          mutations_attributes: [
+                                                                                :nucleotide,
+                                                                                :aminoacid,
+                                                                                :hgvs, 
+                                                                                mutpubs_attributes: [:publication_id],
+                                                                                publications_attributes: [
+                                                                                                            :author,
+                                                                                                            :title,
+                                                                                                            :date,
+                                                                                                            :journal]]], 
+                                     resists_attributes: [:mic,  
+                                                          :reference, 
+                                                          :isolated_id, 
+                                                          :drug_id])
     end
 
-    def gene_params
-      params.require(:gene).permit(:name, :sequence, :reference, :uniprot, :symbol, :isolated_id)
+  def drug_params
+      params.require(:drug).permit(:name, :reference, :atc, :drugbank)
     end
-
+ def set_dash
+     @origins = Origin.all
+    @organisms = Organism.all
+    @drugs = Drug.all
+    @mutations = Mutation.all
+ end
 end

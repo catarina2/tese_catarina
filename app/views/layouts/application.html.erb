@@ -14,7 +14,8 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-
+    <%= javascript_include_tag :defaults, :cache => true %>
+    
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
     <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
@@ -39,7 +40,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
@@ -49,37 +50,19 @@
         <a class="navbar-brand" href="#">FUNBASE</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav nav-pills">
-            <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
-            <li role="presentation"><%= link_to "Search", "/path" %></li>
+            <li role="presentation" ><%= link_to "Home", welcome_index_path %></li>
             <% if admin? %>
-            <li role="presentation"><%= link_to "Users", "/path" %></li>
-            <li role="presentation"><%= link_to "DashBoard", "/path" %></li>
-            <li role="presentation" class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expand="false">Dropdown <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                  <li><%= link_to "Organisms", organisms_path  %></li>
-                  <li><%= link_to "Origins", origins_path  %></li>
-                  <li><%= link_to "Isolateds", isolateds_path  %></li>
-                  <li><%= link_to "Drug/Isolated", resists_path  %></li>
-                  <li><%= link_to "Drugs", drugs_path  %></li>
-                  <li><%= link_to "Genes", genes_path  %></li>
-                  <li><%= link_to "Mutations", mutations_path  %></li>
-                  <li><%= link_to "Stats", stats_path  %></li>
-                  <li><%= link_to "Publications", publications_path  %></li>
-                  <li><%= link_to "Mutation/Publication", mutpubs_path  %></li>
-
-              </ul>
-            </li>
+            <li role="presentation" ><%= link_to " DashBoard", new_dashboard_path %></li>
+            <li role="presentation" ><%= link_to " Import/Export Data", "/path" %></li>
             <% end %>
             
           </ul>
           <p class="navbar-text pull-right" >
             <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %> | <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
+              <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link glyphicon glyphicon-edit' %> | <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link glyphicon glyphicon-log-out'%><br/>
+               Logged in as <strong id="mail"><%= current_user.email %></strong>.
             <% else %>
-                <%= link_to 'Sign Up', new_user_registration_path, :class => 'navbar-link' %> | <%= link_to 'Login', new_user_session_path, :class => 'navbar-link' %>
+                <%= link_to 'SignUp', new_user_registration_path, :class => 'navbar-link glyphicon glyphicon-plus-sign' %> | <%= link_to 'Login', new_user_session_path, :class => 'navbar-link glyphicon glyphicon-log-in' %>
             <% end %>
         </div>
       </div>
@@ -91,7 +74,7 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <% if admin? %>
+    
         <div class="col-lg-3">
           <div class="well sidebar-nav">
             <h3>Tables</h3>
@@ -99,31 +82,36 @@
                <li><%= link_to "Organisms", organisms_path  %></li>
                   <li><%= link_to "Origins", origins_path  %></li>
                   <li><%= link_to "Isolateds", isolateds_path  %></li>
-                  <li><%= link_to "Drug/Isolated", resists_path  %></li>
                   <li><%= link_to "Drugs", drugs_path  %></li>
                   <li><%= link_to "Genes", genes_path  %></li>
                   <li><%= link_to "Mutations", mutations_path  %></li>
-                  <li><%= link_to "Stats", stats_path  %></li>
                   <li><%= link_to "Publications", publications_path  %></li>
-                  <li><%= link_to "Mutation/Publication", mutpubs_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
-      <%end%>
+      
       <div class="clean"></div>
       <footer>
-        <br />
-        <p>&copy; 2015 - FUNBASE - Todos os direitos Reservados</p>
+      <div class="navbar navbar-inverse navbar-static-bottom">
+          <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                  <div class="copyright">&copy; 2015 - FUNBASE - Todos os direitos Reservados</div>
+                </div>
+                <div class="col-lg-6">
+                <div class="foot_menu">
+                  <ul>
+                    <li><%= link_to "About Us", "/welcome/about"  %></li>
+                    <li><%= link_to "FAQ", "/welcome/faq"  %></li>
+                  </ul>
+                </div>
+              </div>
+          </div>
 
-        <nav>
-          <ul>
-            <li><%= link_to "About Us", "/path"  %></li>
-            <li><%= link_to "FAQ", "/path"  %></li>
-            <li><%= link_to "Contact Us", "/path"  %></li>
-          </ul>
-        </nav>
-      </footer>
+      </div>
+      </div>
+    </footer>
 
 
     </div> <!-- /container -->

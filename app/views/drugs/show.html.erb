@@ -14,37 +14,52 @@
   <dd><%= @drug.drugbank %></dd>
    <hr>
     <div class="panel panel-info">
-      <div class="panel-heading" style="font-size: 18px" align="center"><b>Isolateds with resistance to this drug: </b></div>
+      <div class="panel-heading" style="font-size: 15px" align="center"><strong>Isolateds with resistance to this drug: </strong></div>
       
           <table class="table table-striped">
             <thead>
               <tr>
+                <th><%= model_class.human_attribute_name(:MIC) %></th>
                 <th><%= model_class.human_attribute_name(:Name) %></th>
                 <th><%= model_class.human_attribute_name(:Disease) %></th>
                 <th><%=t '.actions', :default => t("helpers.actions") %></th>
               </tr>
             </thead>
             <tbody>
-              <% @drug.isolateds.each do |isolated| %>
+              <% if @drug.isolateds.any? == true %>
+              <% @drug.resists.each do |isolated| %>
                 <tr>
-                  <td><%= isolated.name %></td>
-                  <td><%= isolated.disease %></td>
+                  <td><%= isolated.mic %></td>
+                  <td><%= isolated.isolated.name %></td>
+                  <td><%= isolated.isolated.disease %></td>
                   <td>
-                    <%= link_to "Go to Isolated", isolated_path(isolated), :class => 'btn btn-info btn-sm' %>
+                    <%= link_to " Go to Isolated", isolated_path(isolated.isolated.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-open' %><br/>
+                    <%= link_to " Show association", resist_path(isolated.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
                   </td>
                 </tr>
               <% end %>
+              <%else%>
+                <tr>
+                  <td colspan="4"><%= "This drug don't have isolated associated"%></td>
+                </tr>
+              <%end%>
+
             </tbody>
             </table>
-    </div>
+        </div>
 </dl>
+             <%= form_tag new_resist_path, :method => 'get' do %>
+                      <div class="input-group">
+                        <strong><%=" Do you need a new association with Drug ID   "%>
+                        <%= text_field_tag :new, @drug.id, :readonly => true, :class => 'textbox' %></strong>
+                        <%= submit_tag "New Association", :name=> nil, :class => 'btn active btn-sm btn-primary' %>
+                      </div>
+            <%end%>
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              drugs_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_drug_path(@drug), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              drug_path(@drug),
+<hr>
+<%= link_to " Back", drugs_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_drug_path(@drug), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", drug_path(@drug),
               :method => 'delete',
               :data => { :confirm => 'Are you sure you want delete the Drug?' },
-              :class => 'btn btn-danger' %>
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

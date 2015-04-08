@@ -18,6 +18,8 @@
           <table class="table table-striped">
             <thead>
               <tr>
+                <th><%= model_class.human_attribute_name(:Information) %></th>
+                <th><%= model_class.human_attribute_name(:Number_of_Studies) %></th>
                 <th><%= model_class.human_attribute_name(:Name) %></th>
                 <th><%= model_class.human_attribute_name(:Reference) %></th>
                 <th><%= model_class.human_attribute_name(:Sequence) %></th>
@@ -25,21 +27,35 @@
               </tr>
             </thead>
             <tbody>
-              <% @mutation.genes.each do |gene| %>
+              <% if @mutation.genes.any? == true %>
+              <% @mutation.stats.each do |gene| %>
                 <tr>
-                  <td><%= gene.name %></td>
-                  <td><%= gene.reference %></td>
-                  <td><%= gene.sequence %></td>
+                  <td><%= gene.info %></td>
+                  <td><%= gene.n_studies %></td>
+                  <td><%= gene.gene.name %></td>
+                  <td><%= gene.gene.reference %></td>
+                  <td><%= gene.gene.sequence %></td>
                   <td>
-                    <%= link_to "Go to Gene", gene_path(gene), :class => 'btn btn-info btn-sm' %>
+                    <%= link_to "Go to Gene", gene_path(gene.gene.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-open' %>
+                    <%= link_to " Show association", stat_path(gene.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
                   </td>
                 </tr>
               <% end %>
+              <%else%>
+                <tr>
+                    <td colspan="6"><%= "This mutation don't have associated genes" %></td>
+                </tr>
+              <%end%>
             </tbody>
-
             </table>
-
     </div>
+    <%= form_tag new_stat_path, :method => 'get' do %>
+          <div class="input-group">
+            <strong><%=" Do you need a new gene for this Mutation, with ID   "%>
+            <%= text_field_tag :newm, @mutation.id, :readonly => true, :class => 'textbox' %></strong>
+            <%= submit_tag "New Gene", :name=> nil, :class => 'btn active btn-sm btn-primary' %>
+          </div>
+        <%end%>
     <hr>
     <div class="panel panel-info">
       <div class="panel-heading" style="font-size: 18px" align="center"><b> Related Publications: </b></div>
@@ -54,28 +70,38 @@
               </tr>
             </thead>
             <tbody>
-              <% @mutation.publications.each do |publication| %>
+              <%if @mutation.publications.any? == true %>
+              <% @mutation.mutpubs.each do |publication| %>
                 <tr>
-                  <td><%= publication.title %></td>
-                  <td><%= publication.author %></td>
-                  <td><%= publication.date %></td>
+                  <td><%= publication.publication.title %></td>
+                  <td><%= publication.publication.author %></td>
+                  <td><%= publication.publication.date %></td>
                   <td>
-                    <%= link_to "Go to Publication", publication_path(publication), :class => 'btn btn-info btn-sm' %>
+                    <%= link_to "Go to Publication", publication_path(publication.publication.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-open' %>
+                    <%= link_to " Show association", mutpub_path(publication.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
                   </td>
                 </tr>
               <% end %>
+              <%else%>
+                <tr>
+                      <td colspan="4"><%= "This mutation don't have related publications" %></td>
+                </tr>
+              <%end%>
             </tbody>
             </table>
     </div>
-
+    <%= form_tag new_mutpub_path, :method => 'get' do %>
+          <div class="input-group">
+            <strong><%=" Do you need a new publication for this Mutation, with ID   "%>
+            <%= text_field_tag :newm, @mutation.id, :readonly => true, :class => 'textbox' %></strong>
+            <%= submit_tag "New Publication", :name=> nil, :class => 'btn active btn-sm btn-primary' %>
+          </div>
+    <%end%>
 </dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              mutations_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_mutation_path(@mutation), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              mutation_path(@mutation),
+<hr>
+<%= link_to " Back", mutations_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_mutation_path(@mutation), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", mutation_path(@mutation),
               :method => 'delete',
-              :data => { :confirm => 'Are you sure you want delete this Mutation?' },
-              :class => 'btn btn-danger' %>
+              :data => { :confirm => 'Are you sure you want delete this mutation?' },
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

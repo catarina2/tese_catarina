@@ -1,0 +1,19 @@
+<div class="panel panel-warning">
+      <div class="panel-heading"><strong>Associate a Mutation to this Gene</strong></div>
+      <div class="panel-body">
+        
+           <p>
+          <%= f.label :Mutation, :class => 'control-label' %><br />
+          <%= f.collection_select :mutation_id, @mutations, :id, :allmut, prompt: true, :class => 'form-control' %>
+           </p>
+            <p>
+          <%= f.label :Number_of_Studies, :class => 'control-label' %><br />
+          <%= f.text_field :n_studies, :class => 'form-control' %><br />
+           </p>
+           <p>
+          <%= f.label :Information, :class => 'control-label' %><br />
+          <%= f.text_area :info, :class => 'form-control' %><br />
+           </p>
+      </div>
+    </div>
+    <hr>

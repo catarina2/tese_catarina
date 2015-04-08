@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Association between Isolated and Drug</strong></div>
+<div class="panel-body">
 <%= form_for @resist, :html => { :class => "form-horizontal resist" } do |f| %>
 
     <% if @resist.errors.any? %>
@@ -14,14 +17,7 @@
       </div>
     </div>
   <% end %>
-
-  <div class="control-group">
-    <%= f.label :Reference, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :reference, :class => 'form-control' %>
-    </div>
-    <%= error_span(@resist[:reference]) %>
-  </div>
+    
   <div class="control-group">
     <%= f.label :MIC, :class => 'control-label' %>
     <div class="controls">
@@ -30,23 +26,34 @@
     <%= error_span(@resist[:mic]) %>
   </div>
   <div class="control-group">
+
+    <% if @n == nil%>
     <%= f.label :Choose_The_Drug, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :drug_id, @drugs, :id, :name, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@resist[:drug_id]) %>
+    <%= f.collection_select :drug_id, @drugs, :id, :name, prompt: true, :class => 'form-control' %>
+    <%else%>
+    <%= f.label :Drug, :class => 'control-label' %>
+    <%= f.collection_select :drug_id, @drugs, :id, :name, :selected => "#{@n}"%>
+    <%end%>
+   
   </div>
   <div class="control-group">
-    <%= f.label :Choose_The_Resistent_Isolated, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :isolated_id, @isolateds, :id, :name, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@resist[:isolated_id]) %>
+    
+    <% if @nn == nil%>
+        <%= f.label :Choose_The_Resistent_Isolated, :class => 'control-label' %>
+        <%= f.collection_select :isolated_id, @isolateds, :id, :name, prompt: true, :class => 'form-control' %>
+    <%else%>
+        <%= f.label :Isolated, :class => 'control-label' %>
+        <%= f.collection_select :isolated_id, @isolateds, :id, :name, :selected => "#{@nn}"%>
+    <%end%> 
+    
+   
   </div>
 
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            resists_path, :class => 'btn btn-default' %>
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            resists_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 
 <% end %>
+</div>
+</div>

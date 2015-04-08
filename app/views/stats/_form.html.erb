@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Association between mutation and gene</strong></div>
+<div class="panel-body">
 <%= form_for @stat, :html => { :class => "form-horizontal stat" } do |f| %>
 
     <% if @stat.errors.any? %>
@@ -30,23 +33,28 @@
     <%= error_span(@stat[:info]) %>
   </div>
   <div class="control-group">
+   <% if @n == nil%>
     <%= f.label :Choose_Gene, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :gene_id, @genes, :id, :name, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@stat[:gene_id]) %>
+    <%= f.collection_select :gene_id, @genes, :id, :name, prompt: true, :class => 'form-control' %>
+    <%else%>
+    <%= f.label :Gene, :class => 'control-label' %>
+     <%= f.collection_select :gene_id, @genes, :id, :name, :selected => "#{@n}" %>
+    <%end%>
   </div>
   <div class="control-group">
-    <%= f.label :Choose_Mutation, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :mutation_id, @mutations, :id, :nucleotide, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@stat[:mutation_id]) %>
+    <% if @nn == nil%>
+        <%= f.label :Choose_Mutation, :class => 'control-label' %>
+        <%= f.collection_select :mutation_id, @mutations, :id, :allmut, prompt: true, :class => 'form-control' %>
+    <%else%>
+        <%= f.label :Mutation, :class => 'control-label' %>
+         <%= f.collection_select :mutation_id, @mutations, :id, :allmut, :selected => "#{@nn}" %>
+    <%end%>
   </div>
 
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            stats_path, :class => 'btn btn-default' %>
-
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            stats_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 <% end %>
+</div>
+</div>

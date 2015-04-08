@@ -20,9 +20,4 @@ class ApplicationController < ActionController::Base
   	 	false
   	 end
   end
-
-   def admin
-    @user = User.first
-
-   end
 end

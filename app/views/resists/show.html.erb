@@ -4,8 +4,6 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:Reference) %>:</strong></dt>
-  <dd><%= @resist.reference %></dd>
   <dt><strong><%= model_class.human_attribute_name(:MIC) %>:</strong></dt>
   <dd><%= @resist.mic %></dd>
   <hr>
@@ -13,21 +11,18 @@
   <br/>
   <dd><b><u><%= model_class.human_attribute_name(:Name) %>:</u></b> <%= @resist.drug.name  %></dd>
   <dd><b><u><%= model_class.human_attribute_name(:Reference) %>:</u></b> <%= @resist.drug.reference  %></dd>
-  <dd> <%= link_to "Go to Drug", drug_path(@resist.drug.id), :class => 'btn btn-info btn-sm' %></dd>
+  <dd> <%= link_to "Go to Drug", drug_path(@resist.drug.id), :class => 'btn active btn-info btn-sm glyphicon glyphicon-open' %></dd>
   <hr>
   <dt><strong><%= model_class.human_attribute_name(:Isolated_Associate) %>:</strong></dt>
   <br/>
   <dd><b><u><%= model_class.human_attribute_name(:Name) %>:</u></b> <%= @resist.isolated.name %></dd>
   <dd><b><u><%= model_class.human_attribute_name(:Disease) %>:</u></b> <%= @resist.isolated.disease %></dd>
-  <dd> <%= link_to "Go to Isolated", isolated_path(@resist.isolated.id), :class => 'btn btn-info btn-sm' %></dd>
+  <dd> <%= link_to "Go to Isolated", isolated_path(@resist.isolated.id), :class => 'btn active btn-info btn-sm glyphicon glyphicon-open' %></dd>
 </dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              resists_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_resist_path(@resist), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              resist_path(@resist),
+<hr>
+<%= link_to " Back", resists_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_resist_path(@resist), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", resist_path(@resist),
               :method => 'delete',
-              :data => { :confirm =>'Are you sure you want delete this resistance??' },
-              :class => 'btn btn-danger' %>
+              :data => { :confirm => 'Are you sure you want delete this association?' },
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

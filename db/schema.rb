@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321220054) do
+ActiveRecord::Schema.define(version: 20150405111413) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,23 +19,23 @@ ActiveRecord::Schema.define(version: 20150321220054) do
   end
 
   create_table "drugs", force: :cascade do |t|
-    t.integer  "reference",  limit: 4
+    t.text     "reference",  limit: 65535
     t.string   "name",       limit: 255
     t.string   "atc",        limit: 255
     t.string   "drugbank",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "genes", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "sequence",    limit: 255
-    t.integer  "reference",   limit: 4
+    t.text     "reference",   limit: 65535
     t.string   "uniprot",     limit: 255
     t.string   "symbol",      limit: 255
     t.integer  "isolated_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "genes", ["isolated_id"], name: "index_genes_on_isolated_id", using: :btree
@@ -95,12 +95,11 @@ ActiveRecord::Schema.define(version: 20150321220054) do
   end
 
   create_table "resists", force: :cascade do |t|
-    t.string   "reference",   limit: 255
     t.integer  "mic",         limit: 4
     t.integer  "drug_id",     limit: 4
     t.integer  "isolated_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "resists", ["drug_id"], name: "index_resists_on_drug_id", using: :btree

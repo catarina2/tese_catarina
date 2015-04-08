@@ -4,6 +4,7 @@
 </div>
 <%= form_tag publications_path, :method => 'get' do %>
   <div class="input-group">
+     <span class="input-group-addon glyphicon glyphicon-search"></span>
     <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Publication here'%>
     <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
   </div>
@@ -21,6 +22,7 @@
     </tr>
   </thead>
   <tbody>
+    <% if @publications.any? == true%>
     <% @publications.each do |publication| %>
       <tr>
         <td><%= link_to publication.id, publication_path(publication) %></td>
@@ -29,24 +31,26 @@
         <td><%= publication.date %></td>
         <td><%= publication.journal %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      publication_path(publication), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_publication_path(publication), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      publication_path(publication),
+          <%= link_to " show", publication_path(publication), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+          <%= link_to " edit", edit_publication_path(publication), :class => 'btn active btn-default btn-xs glyphicon glyphicon-edit' %>
+          <%= link_to " Delete", publication_path(publication),
                       :method => :delete,
-                      :data => { :confirm =>'Are you sure you want delete this publication?'},
-                      :class => 'btn btn-sm btn-danger' %>
+                      :data => { :confirm => 'Are you sure you want delete this Publication?'},
+                      :class => 'btn active btn-xs btn-danger glyphicon glyphicon-remove' %>
         </td>
+      </tr>
+    <% end %>
+    <% else %>
+      <tr>
+            <td colspan="6"><%= "Don't exist publications" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<div class="pager" align="center">
+<div class="pager btn-sm" align="center">
   <%= will_paginate @publications %>
 </div>
 <hr>
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to " New Publication",
             new_publication_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>

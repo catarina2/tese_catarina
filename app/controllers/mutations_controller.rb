@@ -1,6 +1,6 @@
 class MutationsController < ApplicationController
   before_action :set_mutation, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, only: [:show, :edit, :new, :destroy, :update, :create]
   # GET /mutations
   # GET /mutations.json
   def index

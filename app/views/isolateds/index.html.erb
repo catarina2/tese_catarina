@@ -4,6 +4,7 @@
 </div>
 <%= form_tag isolateds_path, :method => 'get' do %>
   <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
     <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Isolated here'%>
     <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
   </div>
@@ -16,12 +17,14 @@
       <th class="info"><%= model_class.human_attribute_name(:Name) %></th>
       <th class="info"><%= model_class.human_attribute_name(:Disease) %></th>
       <th class="info"><%= model_class.human_attribute_name(:Number_of_Samples) %></th>
-      <th class="info"><%= model_class.human_attribute_name(:Origin) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Type_origin) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Laboratory) %></th>
       <th class="info"><%= model_class.human_attribute_name(:Organism) %></th>
       <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
+    <% if @isolateds.any? == true%>
     <% @isolateds.each do |isolated| %>
       <tr>
         <td><%= link_to isolated.id, isolated_path(isolated) %></td>
@@ -29,26 +32,29 @@
         <td><%= isolated.disease %></td>
         <td><%= isolated.n_samples %></td>
         <td><%= isolated.origin.origin_t %></td>
+        <td><%= isolated.origin.lab_name %></td>
         <td><%= isolated.organism.name %></td>
         <td>
-           <%= link_to t('.show', :default => t("helpers.links.show")),
-                      isolated_path(isolated), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_isolated_path(isolated), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      isolated_path(isolated),
+          <%= link_to " show", isolated_path(isolated), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+          <%= link_to " edit", edit_isolated_path(isolated), :class => 'btn active btn-default btn-xs glyphicon glyphicon-edit' %>
+          <%= link_to " Delete", isolated_path(isolated),
                       :method => :delete,
-                      :data => { :confirm => 'Are you sure that you want delete this isolated and your genes associated?' },
-                      :class => 'btn btn-sm btn-danger' %>
+                      :data => { :confirm => 'Are you sure you want delete the Isolated your genes associated?'},
+                      :class => 'btn active btn-xs btn-danger glyphicon glyphicon-remove' %>
         </td>
       </tr>
     <% end %>
+    <%else%>
+      <tr>
+          <td colspan="8"><%= "Don't exist isolateds" %></td>
+      </tr>
+    <%end%>
   </tbody>
 </table>
-<div class="pager" align="center">
+<div class="pager btn-sm" align="center">
   <%= will_paginate @isolateds %>
   </div>
   <hr>
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to " New Isolated",
             new_isolated_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>

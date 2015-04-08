@@ -5,6 +5,7 @@
 
 <%= form_tag drugs_path, :method => 'get' do %>
   <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
     <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Drug here'%>
     <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
   </div>
@@ -19,11 +20,11 @@
       <th class="info"><%= model_class.human_attribute_name(:Name) %></th>
       <th class="info"><%= model_class.human_attribute_name(:ATC) %></th>
       <th class="info"><%= model_class.human_attribute_name(:DrugBank) %></th>
-      <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>
-      
+      <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>  
     </tr>
   </thead>
   <tbody>
+    <% if @drugs.any? == true %>
     <% @drugs.each do |drug| %>
       <tr>
         <td><%= link_to drug.id, drug_path(drug) %></td>
@@ -32,24 +33,26 @@
         <td><%= drug.atc %></td>
         <td><%= drug.drugbank %></td>
         <td>
-           <%= link_to t('.show', :default => t("helpers.links.show")),
-                      drug_path(drug), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_drug_path(drug), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      drug_path(drug),
+           <%= link_to " show", drug_path(drug), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+          <%= link_to " edit", edit_drug_path(drug), :class => 'btn active btn-default btn-xs glyphicon glyphicon-edit' %>
+          <%= link_to " Delete", drug_path(drug),
                       :method => :delete,
                       :data => { :confirm => 'Are you sure you want delete the Drug?'},
-                      :class => 'btn btn-sm btn-danger' %>
+                      :class => 'btn active btn-xs btn-danger glyphicon glyphicon-remove' %>
         </td>
       </tr>
     <% end %>
+    <% else %>
+        <tr>
+          <td colspan="6"><%= "Don't exist drugs"%></td>
+       </tr>
+    <%end%>
   </tbody>
 </table>
-  <div class="pager" align="center">
+  <div class="pager btn-sm" align="center">
   <%= will_paginate @drugs %>
   </div>
 <hr>
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to " New Drug",
             new_drug_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>

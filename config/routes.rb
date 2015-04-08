@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :dash
+  resources :createorganism
+  resources :createorigin
+  resources :createdrug
+  resources :createmutation
   resources :dashboards
 
   resources :mutpubs
@@ -29,6 +32,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'welcome/index'
+  get 'welcome/about'
+  get 'welcome/faq'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

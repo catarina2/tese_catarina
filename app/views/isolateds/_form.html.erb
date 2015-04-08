@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Isolated</strong></div>
+<div class="panel-body">
 <%= form_for @isolated, :html => { :class => "form-horizontal isolated" } do |f| %>
 
     <% if @isolated.errors.any? %>
@@ -39,21 +42,23 @@
   <div class="control-group">
     <%= f.label :Origin, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :origin_id, @origins, :id, :origin_t, prompt: true, :class => 'form-control' %>
+      <%= f.collection_select :origin_id, @origins, :id, :all, prompt: true, :class => 'form-control' %>
     </div>
     <%= error_span(@isolated[:origin_id]) %>
   </div>
   <div class="control-group">
-    <%= f.label :Organism, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :organism_id, @organisms, :id, :name, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@isolated[:organism_id]) %>
+    <% if @n == nil%>
+         <%= f.label :Organism, :class => 'control-label' %>
+         <%= f.collection_select :organism_id, @organisms, :id, :name, prompt: true, :class => 'form-control' %>
+    <%else%>
+         <%= f.label :Organism, :class => 'control-label' %>
+         <%= f.collection_select :organism_id, @organisms, :id, :name, :selected => "#{@n}" %>
+    <%end%>
   </div>
-
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            isolateds_path, :class => 'btn btn-default' %>
-
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            isolateds_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 <% end %>
+</div>
+</div>

@@ -1,6 +1,7 @@
 class GenesController < ApplicationController
   before_action :set_gene, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, only: [:show, :edit, :new, :destroy, :update, :create]
+  before_action :set_isolated, only: [:new, :edit, :update, :create]
 
   # GET /genes
   # GET /genes.json
@@ -20,12 +21,11 @@ class GenesController < ApplicationController
   # GET /genes/new
   def new
     @gene = Gene.new
-    @isolateds = Isolated.all
+    @isol = params[:newg] #isolated.id
   end
 
   # GET /genes/1/edit
   def edit
-    @isolateds = Isolated.all
   end
 
   # POST /genes
@@ -79,5 +79,9 @@ class GenesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def gene_params
       params.require(:gene).permit(:name, :sequence, :reference, :uniprot, :symbol, :isolated_id)
+    end
+
+    def set_isolated
+        @isolateds = Isolated.all
     end
 end

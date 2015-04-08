@@ -4,6 +4,7 @@
 </div>
 <%= form_tag organisms_path, :method => 'get' do %>
   <div class="input-group">
+     <span class="input-group-addon glyphicon glyphicon-search"></span>
     <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Organism here'%>
     <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
   </div>
@@ -19,30 +20,33 @@
     </tr>
   </thead>
   <tbody>
+    <% if @organisms.any? == true%>
     <% @organisms.each do |organism| %>
       <tr>
         <td><%= link_to organism.id, organism_path(organism) %></td>
         <td><%= organism.tax_org %></td>
         <td><%= organism.name %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      organism_path(organism), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_organism_path(organism), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      organism_path(organism),
+          <%= link_to " show", organism_path(organism), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+          <%= link_to " edit", edit_organism_path(organism), :class => 'btn active btn-default btn-xs glyphicon glyphicon-edit' %>
+          <%= link_to " Delete", organism_path(organism),
                       :method => :delete,
-                      :data => { :confirm => 'Are you sure you want to delete the Organism and your associated?' },
-                      :class => 'btn btn-sm btn-danger' %>
+                      :data => { :confirm => 'Are you sure you want to delete the Organism and your associated?'},
+                      :class => 'btn active btn-xs btn-danger glyphicon glyphicon-remove' %>
         </td>
       </tr>
     <% end %>
+    <% else %>
+      <tr>
+          <td colspan="4"><%= "Don't exist organisms"%></td>
+      </tr>
+    <%end%>
   </tbody>
 </table>
-<div class="pager" align="center">
+<div class="pager btn-sm" align="center">
   <%= will_paginate @organisms %>
 </div>
 <hr>
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to " New Organism",
             new_organism_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>

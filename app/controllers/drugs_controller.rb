@@ -1,7 +1,6 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
-  
+  before_filter :authorize, only: [:show, :edit, :new, :destroy, :update, :create]
   # GET /drugs
   # GET /drugs.json
   def index
@@ -39,7 +38,7 @@ class DrugsController < ApplicationController
         format.html { redirect_to @drug, notice: 'Drug was successfully created.' }
         format.json { render :show, status: :created, location: @drug }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @drug.errors, status: :unprocessable_entity }
       end
     end

@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Association between Mutation and Publication</strong></div>
+<div class="panel-body">
 <%= form_for @mutpub, :html => { :class => "form-horizontal mutpub" } do |f| %>
 
     <% if @mutpub.errors.any? %>
@@ -16,23 +19,27 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :Mutation_Associate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :mutation_id, @mutations, :id, :nucleotide, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@mutpub[:mutation_id]) %>
+    <% if @n == nil%>
+        <%= f.label :Mutation_Associate, :class => 'control-label' %>
+        <%= f.collection_select :mutation_id, @mutations, :id, :allmut, prompt: true, :class => 'form-control' %>
+    <%else%>
+        <%= f.label :Mutation, :class => 'control-label' %>
+        <%= f.collection_select :mutation_id, @mutations, :id, :allmut, :selected => "#{@n}"%>
+    <%end%>
   </div>
   <div class="control-group">
-    <%= f.label :Publication_Associate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :publication_id, @publications, :id, :title, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@mutpub[:publication_id]) %>
+    <% if @nn == nil%>
+       <%= f.label :Publication_Associate, :class => 'control-label' %>
+       <%= f.collection_select :publication_id, @publications, :id, :title, prompt: true, :class => 'form-control' %>
+    <%else%>
+        <%= f.label :Publication, :class => 'control-label' %>
+        <%= f.collection_select :publication_id, @publications, :id, :title, :selected => "#{@nn}"%>
+    <%end%>
   </div>
-
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            mutpubs_path, :class => 'btn btn-default' %>
-
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            mutpubs_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 <% end %>
+</div>
+</div>

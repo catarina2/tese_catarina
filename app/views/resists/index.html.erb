@@ -2,44 +2,55 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= form_tag resists_path, :method => 'get' do %>
+  <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+    <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Drug or Isolated here'%>
+    <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
+  </div>
+<%end%>
+<hr>
 <table class="table table-striped">
   <thead>
     <tr>
       <th class="info"><%= model_class.human_attribute_name(:ID) %></th>
-      <th class="info"><%= model_class.human_attribute_name(:Reference) %></th>
       <th class="info"><%= model_class.human_attribute_name(:MIC) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Reference_of_Drug) %></th>
       <th class="info"><%= model_class.human_attribute_name(:Drug) %></th>
       <th class="info"><%= model_class.human_attribute_name(:Isolated_Resistant) %></th>
       <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
+    <% if @resists.any? == true%>
     <% @resists.each do |resist| %>
       <tr>
         <td><%= link_to resist.id, resist_path(resist) %></td>
-        <td><%= resist.reference %></td>
         <td><%= resist.mic %></td>
+        <td><%= resist.drug.reference %></td>
         <td><%= resist.drug.name %></td>
         <td><%= resist.isolated.name %></td>
         <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      resist_path(resist), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_resist_path(resist), :class => 'btn btn-default btn-sm' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      resist_path(resist),
+          <%= link_to " show", resist_path(resist), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+          <%= link_to " edit", edit_resist_path(resist), :class => 'btn active btn-default btn-xs glyphicon glyphicon-edit' %>
+          <%= link_to " Delete", resist_path(resist),
                       :method => :delete,
-                      :data => { :confirm => 'Are you sure you want delete this resistance?' },
-                      :class => 'btn btn-sm btn-danger' %>
+                      :data => { :confirm => 'Are you sure you want delete this association?'},
+                      :class => 'btn active btn-xs btn-danger glyphicon glyphicon-remove' %>
         </td>
+      </tr>
+    <% end %>
+    <% else %>
+      <tr>
+          <td colspan="6"><%= "Don't exist associations between isolateds and drugs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<div class="pager" align="center">
+<div class="pager btn-sm" align="center">
   <%= will_paginate @resists %>
 </div>
 <hr>
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to " New Association",
             new_resist_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>

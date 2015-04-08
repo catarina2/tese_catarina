@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Organism</strong></div>
+<div class="panel-body">
 <%= form_for @organism, :html => { :class => "form-horizontal organism" } do |f| %>
 
     <% if @organism.errors.any? %>
@@ -29,10 +32,11 @@
     </div>
     <%= error_span(@organism[:name]) %>
   </div>
-
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            organisms_path, :class => 'btn btn-default' %>
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            organisms_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 
 <% end %>
+</div>
+</div>

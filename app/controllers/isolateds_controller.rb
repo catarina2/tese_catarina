@@ -1,6 +1,7 @@
 class IsolatedsController < ApplicationController
   before_action :set_isolated, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, only: [:show, :edit, :new, :destroy, :update, :create]
+  before_action :set_orgorig, only: [:new, :edit, :update, :create]
   # GET /isolateds
   # GET /isolateds.json
   def index
@@ -19,14 +20,11 @@ class IsolatedsController < ApplicationController
   # GET /isolateds/new
   def new
     @isolated = Isolated.new
-    @origins = Origin.all
-    @organisms = Organism.all
+    @n = params[:newi] #isolated.id
   end
 
   # GET /isolateds/1/edit
   def edit
-    @origins = Origin.all
-    @organisms = Organism.all
   end
 
   # POST /isolateds
@@ -78,5 +76,10 @@ class IsolatedsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def isolated_params
       params.require(:isolated).permit(:name, :disease, :n_samples, :origin_id, :organism_id)
+    end
+
+    def set_orgorig
+        @origins = Origin.all
+        @organisms = Organism.all
     end
 end

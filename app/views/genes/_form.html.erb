@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Gene</strong></div>
+<div class="panel-body">
 <%= form_for @gene, :html => { :class => "form-horizontal gene" } do |f| %>
 
     <% if @gene.errors.any? %>
@@ -51,16 +54,19 @@
     <%= error_span(@gene[:symbol]) %>
   </div>
   <div class="control-group">
-    <%= f.label :Choose_the_Isolated_Associate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select :isolated_id, @isolateds, :id, :name, prompt: true, :class => 'form-control' %>
-    </div>
-    <%= error_span(@gene[:isolated_id]) %>
+    <% if @isol == nil%>
+         <%= f.label :Choose_the_Isolated_Associate, :class => 'control-label' %>
+         <%= f.collection_select :isolated_id, @isolateds, :id, :name, prompt: true, :class => 'form-control' %>
+    <%else%>
+         <%= f.label :Isolated, :class => 'control-label' %>
+         <%= f.collection_select :isolated_id, @isolateds, :id, :name, :selected => "#{@isol}" %>
+    <%end%>
   </div>
 
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            genes_path, :class => 'btn btn-default' %>
-
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            genes_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 <% end %>
+</div>
+</div>

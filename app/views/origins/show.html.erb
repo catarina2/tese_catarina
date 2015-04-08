@@ -9,13 +9,10 @@
   <dt><strong><%= model_class.human_attribute_name(:Name_of_Laboratory) %>:</strong></dt>
   <dd><%= @origin.lab_name %></dd>
 </dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              origins_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_origin_path(@origin), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              origin_path(@origin),
+<hr>
+<%= link_to " Back", origins_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_origin_path(@origin), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", origin_path(@origin),
               :method => 'delete',
               :data => { :confirm => 'Are you sure you want to delete the Origin?' },
-              :class => 'btn btn-danger' %>
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Drug</strong></div>
+<div class="panel-body">
 <%= form_for @drug, :html => { :class => "form-horizontal drug" } do |f| %>
 
     <% if @drug.errors.any? %>
@@ -44,9 +47,10 @@
     <%= error_span(@drug[:drugbank]) %>
   </div>
 
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            drugs_path, :class => 'btn btn-default' %>
-
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            drugs_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 <% end %>
+</div>
+</div>

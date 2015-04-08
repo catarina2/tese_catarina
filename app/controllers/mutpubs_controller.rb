@@ -1,11 +1,16 @@
 class MutpubsController < ApplicationController
-  before_action :set_mutpub, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :set_mutpubs, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize, only: [:show, :edit, :new, :destroy, :update, :create]
+  before_action :set_mutpub, only: [:new, :edit, :update, :create]
   # GET /mutpubs
   # GET /mutpubs.json
   def index
-  
+      if params[:search]
+      @mutpubs = Mutpub.search(params[:search]).paginate(:per_page => 3, :page => params[:page])
+    else
       @mutpubs = Mutpub.all.paginate(:per_page => 3, :page => params[:page])
+    end
+  
     
   end
 
@@ -17,14 +22,12 @@ class MutpubsController < ApplicationController
   # GET /mutpubs/new
   def new
     @mutpub = Mutpub.new
-    @mutations = Mutation.all
-    @publications = Publication.all
+    @n = params[:newm] #mutation.id
+    @nn = params[:newp] #publication.id
   end
 
   # GET /mutpubs/1/edit
   def edit
-    @mutations = Mutation.all
-    @publications = Publication.all
   end
 
   # POST /mutpubs
@@ -69,12 +72,17 @@ class MutpubsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_mutpub
+    def set_mutpubs
       @mutpub = Mutpub.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mutpub_params
       params.require(:mutpub).permit(:mutation_id, :publication_id)
+    end
+
+    def set_mutpub
+       @mutations = Mutation.all
+       @publications = Publication.all
     end
 end

@@ -1,3 +1,6 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Origin</strong></div>
+<div class="panel-body">
 <%= form_for @origin, :html => { :class => "form-horizontal origin" } do |f| %>
 
     <% if @origin.errors.any? %>
@@ -29,10 +32,10 @@
     </div>
     <%= error_span(@origin[:lab_name]) %>
   </div>
-
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            origins_path, :class => 'btn btn-default' %>
-
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            origins_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
 <% end %>
+</div>
+</div>

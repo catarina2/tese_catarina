@@ -1,62 +1,161 @@
 <h1>Dashboard</h1>
 
-<%= form_for @isolated, url:dashboards_path do |f|%>
-  <p>
-    <%= f.label :Name_of_Isolated, :class => 'control-label' %><br />
-    <%= f.text_field :name, :class => 'form-control' %>
-  </p> 
-  <p>
-    <%= f.label :Disease_of_Isolated, :class => 'control-label' %><br />
-    <%= f.text_field :disease, :class => 'form-control' %>
-  </p> 
-  <p>
-    <%= f.label :Number_of_Samples, :class => 'control-label' %><br />
-    <%= f.text_field :n_samples, :class => 'form-control' %>
-  </p> 
-  <p>
-    <%= f.label :Choose_Origin_of_Isolated, :class => 'control-label' %><br />
-    <%= f.collection_select :origin_id, @origins, :id, :origin_t, prompt: true, :class => 'form-control' %>
-  </p> 
-  <p>
-    <%= f.label :Choose_Organism_associated_with_this_Isolated, :class => 'control-label' %><br />
-    <%= f.collection_select :organism_id, @organisms, :id, :name, prompt: true, :class => 'form-control' %>
-  </p> 
-  <h3>Do you want to add to this isolated a gene?</h3>
-      <%= link_to "Go to Drug", "#", :class => 'btn btn-primary', :id => 'xx' %>
-     <script>
-      $("#xx").click(function(){
-          $("#x").show();
-          $("#xx").hide();
-      });
-     </script>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+<ul class="nav nav-tabs">
+<li role="presentation"><%= link_to " Add new drug", "#", :class => 'glyphicon glyphicon-plus-sign', :id => 'xx'%></li>
+<li role="presentation"><%= link_to " Add new mutation", "#", :class => 'glyphicon glyphicon-plus-sign', :id => 'yy'%></li>
+<li role="presentation"><%= link_to " Add new Organism", "#", :class => 'glyphicon glyphicon-plus-sign', :id => 'dd'%></li>
+<li role="presentation"><%= link_to " Add new Origin", "#", :class => 'glyphicon glyphicon-plus-sign', :id => 'aa'%></li>
+</ul>
+<br/>
+<div id="x">
+<%= render :partial => 'drug_fields' %>
+</div> 
+<div id="y">
+<%= render :partial => 'mutation_fields' %>
+</div> 
+<div id="d">
+<%= render :partial => 'organism_fields' %>
+</div> 
+<div id="a">
+<%= render :partial => 'origin_fields' %>
+</div> 
+</div>
+</nav>
 
-    <div class="panel panel-info" id="x">
-      <div class="panel-heading">Add Gene to this Isolated</div>
+<script>
+  $("#xx").click(function(){
+    $("#x").show();
+    $("#y").hide();
+    $("#d").hide();
+    $("#a").hide();
+});
+
+$("#yy").click(function(){
+    $("#y").show();
+    $("#x").hide();
+    $("#d").hide();
+    $("#a").hide();
+});
+
+$("#dd").click(function(){
+    $("#d").show();
+    $("#y").hide();
+    $("#x").hide();
+    $("#a").hide();
+});
+
+$("#aa").click(function(){
+    $("#a").show();
+    $("#y").hide();
+    $("#d").hide();
+    $("#x").hide();
+});
+
+
+</script>
+<br/>
+
+
+
+<br/>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <br />
+<%= form_for @isolated, url:dashboards_path do |f|%>
+    
+<div class="panel panel-info">
+<div class="panel-heading"><strong>New Isolated</strong></div>
+<div class="panel-body">
+  <% if @isolated.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@isolated.errors.count, "error") %> prohibited this isolated from being saved:</h3>
+      </div>
       <div class="panel-body">
-        <%= f.fields_for :genes do |builder| %>
-           <p>
-          <%= builder.label :Name, :class => 'control-label' %><br />
-          <%= builder.text_field :name, :class => 'form-control' %><br />
-           </p>
-           <p>
-          <%= builder.label :Sequence, :class => 'control-label' %><br />
-          <%= builder.text_field :sequence, :class => 'form-control' %><br />
-           </p>
-           <p>
-          <%= builder.label :Reference, :class => 'control-label' %><br />
-          <%= builder.text_field :reference, :class => 'form-control' %><br />
-           </p>
-           <p>
-          <%= builder.label :Uniprot, :class => 'control-label' %><br />
-          <%= builder.text_field :uniprot, :class => 'form-control' %><br />
-           </p>
-           <p>
-          <%= builder.label :Symbol, :class => 'control-label'  %><br />
-          <%= builder.text_field :symbol, :class => 'form-control' %><br />
-           </p>
+        <ul>
+        <% @isolated.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
+        </ul>
       </div>
     </div>
-    <%= f.submit "Submit", :class => 'btn btn-primary'%>
+  <% end %>
+  <p>
+    <div class="control-group">
+    <%= f.label :Name_of_Isolated, :class => 'control-label' %><br />
+    <div class="controls">
+    <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:name]) %>
+  </div>
+  </p> 
+  <p>
+    <div class="control-group">
+    <%= f.label :Disease_of_Isolated, :class => 'control-label' %><br />
+    <div class="controls">
+    <%= f.text_field :disease, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:disease]) %>
+  </div>
+  </p> 
+  <p>
+    <div class="control-group">
+    <%= f.label :Number_of_Samples, :class => 'control-label' %><br />
+    <div class="controls">
+    <%= f.text_field :n_samples, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:n_samples]) %>
+  </div>
+  </p> 
+  <p>
+    <div class="control-group">
+    <%= f.label :Choose_Origin_of_Isolated, :class => 'control-label' %><br />
+    <div class="controls">
+    <%= f.collection_select :origin_id, @origins, :id, :all, prompt: true, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:origin_id]) %>
+  </div>
+  </p> 
+  <p>
+    <div class="control-group">
+    <%= f.label :Choose_Organism_associated_with_this_Isolated, :class => 'control-label' %><br />
+    <div class="controls">
+    <%= f.collection_select :organism_id, @organisms, :id, :name, prompt: true, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:organism_id]) %>
+  </div>
+  </p> 
+  <hr>
+  <div class="panel panel-info">
+  <div class="panel-heading"><strong>Do you want to add to this isolated a gene?</strong></div>
+  <div class="panel-body">
+    <div id="x">
+       <%= f.fields_for :genes do |builder| %>
+       <%= render 'gene_fields', f: builder%>
+       <%end%>
+   </div>
+  <%= link_to_add_fields " Add a new Gene", f, :genes%><br />
+  </div>
+  </div>
+  <hr>
+  <div class="panel panel-info">
+  <div class="panel-heading"><strong>Do you want to add to this isolated a Drug?</strong></div>
+  <div class="panel-body">
+    <div id="x">
+       <%= f.fields_for :resists do |builder| %>
+       <%= render 'resist_fields', f: builder%>
+       <%end%>
+   </div>
+  <%= link_to_add_fields " Add a resistent drug", f, :resists %><br />
+  </div>
+  </div>
+  <hr>
+    <span style="position: relative; left: 350px;" ><%= f.submit "Submit", :class => 'btn btn-sm active btn-primary'%></span>
+</div>
+</div>
 <% end %>
+</div>
+</nav>
 

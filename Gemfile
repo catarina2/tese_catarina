@@ -7,6 +7,9 @@ group :assets do
 
 end
 
+gem 'dynamic_form'
+gem 'cocoon'
+
 gem 'mysql2'
 
 gem 'bootstrap-will_paginate'
