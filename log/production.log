@@ -1,0 +1,474 @@
+I, [2015-04-15T11:01:41.475856 #2591]  INFO -- : Started GET "/funbase/" for 192.168.193.109 at 2015-04-15 11:01:41 +0100
+F, [2015-04-15T11:01:41.480726 #2591] FATAL -- : 
+ActiveRecord::NoDatabaseError (Unknown database 'my_production'):
+  activerecord (4.2.0) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `rescue in mysql2_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/mysql2_adapter.rb:10:in `mysql2_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/funbase/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/funbase/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:03:15.453129 #2591]  INFO -- : Started GET "/funbase/" for 192.168.193.109 at 2015-04-15 11:03:15 +0100
+F, [2015-04-15T11:03:15.457031 #2591] FATAL -- : 
+ActiveRecord::NoDatabaseError (Unknown database 'my_production'):
+  activerecord (4.2.0) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `rescue in mysql2_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/mysql2_adapter.rb:10:in `mysql2_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/funbase/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/funbase/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:03:31.121342 #2846]  INFO -- : Started GET "/funbase/" for 192.168.193.109 at 2015-04-15 11:03:31 +0100
+F, [2015-04-15T11:03:31.126141 #2846] FATAL -- : 
+ActiveRecord::NoDatabaseError (Unknown database 'my_production'):
+  activerecord (4.2.0) lib/active_record/connection_adapters/mysql2_adapter.rb:23:in `rescue in mysql2_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/mysql2_adapter.rb:10:in `mysql2_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/funbase/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/funbase/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+D, [2015-04-15T11:03:54.567175 #2865] DEBUG -- :   [1m[36m (55.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:54.726446 #2865] DEBUG -- :   [1m[35m (157.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+D, [2015-04-15T11:03:54.728331 #2865] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+I, [2015-04-15T11:03:54.734055 #2865]  INFO -- : Migrating to CreateOrganisms (20150316034636)
+D, [2015-04-15T11:03:54.799993 #2865] DEBUG -- :   [1m[35m (63.4ms)[0m  CREATE TABLE `organisms` (`id` int(11) auto_increment PRIMARY KEY, `tax_org` int(11), `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+D, [2015-04-15T11:03:54.805249 #2865] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+D, [2015-04-15T11:03:54.806521 #2865] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150316034636')
+D, [2015-04-15T11:03:54.825034 #2865] DEBUG -- :   [1m[36m (18.1ms)[0m  [1mCOMMIT[0m
+I, [2015-04-15T11:03:54.825158 #2865]  INFO -- : Migrating to CreateOrigins (20150316034723)
+D, [2015-04-15T11:03:54.858832 #2865] DEBUG -- :   [1m[35m (32.1ms)[0m  CREATE TABLE `origins` (`id` int(11) auto_increment PRIMARY KEY, `origin_t` varchar(255), `lab_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+D, [2015-04-15T11:03:54.859994 #2865] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+D, [2015-04-15T11:03:54.860980 #2865] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150316034723')
+D, [2015-04-15T11:03:54.892180 #2865] DEBUG -- :   [1m[36m (30.9ms)[0m  [1mCOMMIT[0m
+I, [2015-04-15T11:03:54.892297 #2865]  INFO -- : Migrating to CreateIsolateds (20150316034829)
+D, [2015-04-15T11:03:54.950925 #2865] DEBUG -- :   [1m[35m (55.5ms)[0m  CREATE TABLE `isolateds` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `disease` varchar(255), `n_samples` int(11), `origin_id` int(11), `organism_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_isolateds_on_origin_id`  (`origin_id`) ,  INDEX `index_isolateds_on_organism_id`  (`organism_id`) ) ENGINE=InnoDB
+D, [2015-04-15T11:03:55.083634 #2865] DEBUG -- :   [1m[36m (131.7ms)[0m  [1mALTER TABLE `isolateds` ADD CONSTRAINT `fk_rails_727bd337c1`
+FOREIGN KEY (`origin_id`)
+  REFERENCES `origins` (`id`)
+[0m
+D, [2015-04-15T11:03:55.201130 #2865] DEBUG -- :   [1m[35m (116.8ms)[0m  ALTER TABLE `isolateds` ADD CONSTRAINT `fk_rails_640c3bac6e`
+FOREIGN KEY (`organism_id`)
+  REFERENCES `organisms` (`id`)
+
+D, [2015-04-15T11:03:55.202100 #2865] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+D, [2015-04-15T11:03:55.203000 #2865] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150316034829')
+D, [2015-04-15T11:03:55.226107 #2865] DEBUG -- :   [1m[36m (22.8ms)[0m  [1mCOMMIT[0m
+I, [2015-04-15T11:03:55.226228 #2865]  INFO -- : Migrating to CreateDrugs (20150316034951)
+D, [2015-04-15T11:03:55.284877 #2865] DEBUG -- :   [1m[35m (57.0ms)[0m  CREATE TABLE `drugs` (`id` int(11) auto_increment PRIMARY KEY, `reference` int(11), `name` varchar(255), `atc` varchar(255), `drugbank` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+D, [2015-04-15T11:03:55.285964 #2865] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+D, [2015-04-15T11:03:55.286743 #2865] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150316034951')
+D, [2015-04-15T11:03:55.301576 #2865] DEBUG -- :   [1m[36m (14.5ms)[0m  [1mCOMMIT[0m
+I, [2015-04-15T11:03:55.301705 #2865]  INFO -- : Migrating to CreateResists (20150316034952)
+D, [2015-04-15T11:03:55.410376 #2865] DEBUG -- :   [1m[35m (105.4ms)[0m  CREATE TABLE `resists` (`id` int(11) auto_increment PRIMARY KEY, `reference` varchar(255), `mic` int(11), `drug_id` int(11), `isolated_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_resists_on_drug_id`  (`drug_id`) ,  INDEX `index_resists_on_isolated_id`  (`isolated_id`) ) ENGINE=InnoDB
+D, [2015-04-15T11:03:55.562548 #2865] DEBUG -- :   [1m[36m (151.1ms)[0m  [1mALTER TABLE `resists` ADD CONSTRAINT `fk_rails_50904e325a`
+FOREIGN KEY (`drug_id`)
+  REFERENCES `drugs` (`id`)
+[0m
+D, [2015-04-15T11:03:55.623180 #2865] DEBUG -- :   [1m[35m (59.6ms)[0m  ALTER TABLE `resists` ADD CONSTRAINT `fk_rails_7cfa338dfb`
+FOREIGN KEY (`isolated_id`)
+  REFERENCES `isolateds` (`id`)
+
+D, [2015-04-15T11:03:55.624124 #2865] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+D, [2015-04-15T11:03:55.625095 #2865] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150316034952')
+D, [2015-04-15T11:03:55.700695 #2865] DEBUG -- :   [1m[36m (75.3ms)[0m  [1mCOMMIT[0m
+I, [2015-04-15T11:03:55.700822 #2865]  INFO -- : Migrating to CreateGenes (20150316035141)
+D, [2015-04-15T11:03:55.815944 #2865] DEBUG -- :   [1m[35m (112.5ms)[0m  CREATE TABLE `genes` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `sequence` varchar(255), `reference` int(11), `uniprot` varchar(255), `symbol` varchar(255), `isolated_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_genes_on_isolated_id`  (`isolated_id`) ) ENGINE=InnoDB
+D, [2015-04-15T11:03:55.925479 #2865] DEBUG -- :   [1m[36m (108.6ms)[0m  [1mALTER TABLE `genes` ADD CONSTRAINT `fk_rails_54874a74cd`
+FOREIGN KEY (`isolated_id`)
+  REFERENCES `isolateds` (`id`)
+[0m
+D, [2015-04-15T11:03:55.926358 #2865] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2015-04-15T11:03:55.927295 #2865] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150316035141')[0m
+D, [2015-04-15T11:03:55.934823 #2865] DEBUG -- :   [1m[35m (7.2ms)[0m  COMMIT
+I, [2015-04-15T11:03:55.934941 #2865]  INFO -- : Migrating to CreateMutations (20150316035229)
+D, [2015-04-15T11:03:55.966927 #2865] DEBUG -- :   [1m[36m (30.4ms)[0m  [1mCREATE TABLE `mutations` (`id` int(11) auto_increment PRIMARY KEY, `nucleotide` varchar(255), `aminoacid` varchar(255), `hgvs` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:55.968102 #2865] DEBUG -- :   [1m[35m (0.1ms)[0m  BEGIN
+D, [2015-04-15T11:03:55.969013 #2865] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150316035229')[0m
+D, [2015-04-15T11:03:55.975724 #2865] DEBUG -- :   [1m[35m (6.4ms)[0m  COMMIT
+I, [2015-04-15T11:03:55.975839 #2865]  INFO -- : Migrating to CreateStats (20150316035311)
+D, [2015-04-15T11:03:56.026373 #2865] DEBUG -- :   [1m[36m (47.2ms)[0m  [1mCREATE TABLE `stats` (`id` int(11) auto_increment PRIMARY KEY, `n_studies` int(11), `info` text, `gene_id` int(11), `mutation_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_stats_on_gene_id`  (`gene_id`) ,  INDEX `index_stats_on_mutation_id`  (`mutation_id`) ) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:56.152478 #2865] DEBUG -- :   [1m[35m (125.2ms)[0m  ALTER TABLE `stats` ADD CONSTRAINT `fk_rails_3c1f2635bf`
+FOREIGN KEY (`gene_id`)
+  REFERENCES `genes` (`id`)
+
+D, [2015-04-15T11:03:56.361727 #2865] DEBUG -- :   [1m[36m (208.2ms)[0m  [1mALTER TABLE `stats` ADD CONSTRAINT `fk_rails_176b3d8b5b`
+FOREIGN KEY (`mutation_id`)
+  REFERENCES `mutations` (`id`)
+[0m
+D, [2015-04-15T11:03:56.363141 #2865] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2015-04-15T11:03:56.364218 #2865] DEBUG -- :   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150316035311')[0m
+D, [2015-04-15T11:03:56.394552 #2865] DEBUG -- :   [1m[35m (30.0ms)[0m  COMMIT
+I, [2015-04-15T11:03:56.394686 #2865]  INFO -- : Migrating to CreatePublications (20150316035358)
+D, [2015-04-15T11:03:56.478294 #2865] DEBUG -- :   [1m[36m (81.9ms)[0m  [1mCREATE TABLE `publications` (`id` int(11) auto_increment PRIMARY KEY, `author` varchar(255), `title` varchar(255), `date` date, `journal` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:56.479527 #2865] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2015-04-15T11:03:56.480564 #2865] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150316035358')[0m
+D, [2015-04-15T11:03:56.494933 #2865] DEBUG -- :   [1m[35m (14.1ms)[0m  COMMIT
+I, [2015-04-15T11:03:56.495019 #2865]  INFO -- : Migrating to DeviseCreateUsers (20150316171154)
+D, [2015-04-15T11:03:56.562103 #2865] DEBUG -- :   [1m[36m (65.3ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:56.662973 #2865] DEBUG -- :   [1m[35m (98.8ms)[0m  CREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) 
+D, [2015-04-15T11:03:56.722189 #2865] DEBUG -- :   [1m[36m (57.2ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+D, [2015-04-15T11:03:56.723178 #2865] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2015-04-15T11:03:56.724274 #2865] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150316171154')[0m
+D, [2015-04-15T11:03:56.732848 #2865] DEBUG -- :   [1m[35m (8.2ms)[0m  COMMIT
+I, [2015-04-15T11:03:56.732969 #2865]  INFO -- : Migrating to CreateMutpubs (20150316225051)
+D, [2015-04-15T11:03:56.766195 #2865] DEBUG -- :   [1m[36m (29.9ms)[0m  [1mCREATE TABLE `mutpubs` (`id` int(11) auto_increment PRIMARY KEY, `mutation_id` int(11), `publication_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_mutpubs_on_mutation_id`  (`mutation_id`) ,  INDEX `index_mutpubs_on_publication_id`  (`publication_id`) ) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:56.815270 #2865] DEBUG -- :   [1m[35m (48.2ms)[0m  ALTER TABLE `mutpubs` ADD CONSTRAINT `fk_rails_ec9ad76aeb`
+FOREIGN KEY (`mutation_id`)
+  REFERENCES `mutations` (`id`)
+
+D, [2015-04-15T11:03:56.970942 #2865] DEBUG -- :   [1m[36m (155.2ms)[0m  [1mALTER TABLE `mutpubs` ADD CONSTRAINT `fk_rails_50d7e81c73`
+FOREIGN KEY (`publication_id`)
+  REFERENCES `publications` (`id`)
+[0m
+D, [2015-04-15T11:03:56.971924 #2865] DEBUG -- :   [1m[35m (0.2ms)[0m  BEGIN
+D, [2015-04-15T11:03:56.972814 #2865] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150316225051')[0m
+D, [2015-04-15T11:03:57.004264 #2865] DEBUG -- :   [1m[35m (31.1ms)[0m  COMMIT
+I, [2015-04-15T11:03:57.004389 #2865]  INFO -- : Migrating to CreateDashboards (20150321220054)
+D, [2015-04-15T11:03:57.063011 #2865] DEBUG -- :   [1m[36m (57.2ms)[0m  [1mCREATE TABLE `dashboards` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2015-04-15T11:03:57.064713 #2865] DEBUG -- :   [1m[35m (0.1ms)[0m  BEGIN
+D, [2015-04-15T11:03:57.065683 #2865] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150321220054')[0m
+D, [2015-04-15T11:03:57.079708 #2865] DEBUG -- :   [1m[35m (13.7ms)[0m  COMMIT
+I, [2015-04-15T11:03:57.079869 #2865]  INFO -- : Migrating to RemoveReferenceFromResists (20150401215444)
+D, [2015-04-15T11:03:57.230277 #2865] DEBUG -- :   [1m[36m (149.3ms)[0m  [1mALTER TABLE `resists` DROP `reference`[0m
+D, [2015-04-15T11:03:57.231529 #2865] DEBUG -- :   [1m[35m (0.1ms)[0m  BEGIN
+D, [2015-04-15T11:03:57.232546 #2865] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20150401215444')[0m
+D, [2015-04-15T11:03:57.255283 #2865] DEBUG -- :   [1m[35m (22.4ms)[0m  COMMIT
+I, [2015-04-15T11:03:57.255433 #2865]  INFO -- : Migrating to ChangeReference (20150405111413)
+D, [2015-04-15T11:03:57.370099 #2865] DEBUG -- :   [1m[36m (112.0ms)[0m  [1mALTER TABLE `drugs` CHANGE `reference` `reference` text DEFAULT NULL[0m
+D, [2015-04-15T11:03:57.407349 #2865] DEBUG -- :   [1m[35m (34.9ms)[0m  ALTER TABLE `genes` CHANGE `reference` `reference` text DEFAULT NULL
+D, [2015-04-15T11:03:57.408301 #2865] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+D, [2015-04-15T11:03:57.409260 #2865] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150405111413')
+D, [2015-04-15T11:03:57.411540 #2865] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+I, [2015-04-15T11:04:00.044813 #2846]  INFO -- : Started GET "/funbase/" for 192.168.193.109 at 2015-04-15 11:04:00 +0100
+I, [2015-04-15T11:04:00.091027 #2846]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-15T11:04:00.119662 #2846] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-15T11:04:00.120500 #2846] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-15T11:04:00.120722 #2846]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.9ms)
+I, [2015-04-15T11:04:00.129853 #2846]  INFO -- : Completed 200 OK in 39ms (Views: 28.2ms | ActiveRecord: 1.1ms)
+I, [2015-04-15T11:04:09.146424 #3111]  INFO -- : Started GET "/funbase/javascripts/application.js" for 192.168.193.109 at 2015-04-15 11:04:09 +0100
+I, [2015-04-15T11:04:09.171593 #3115]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.193.109 at 2015-04-15 11:04:09 +0100
+F, [2015-04-15T11:04:09.301947 #3111] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/application.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:04:09.314531 #3126]  INFO -- : Started GET "/funbase/stylesheets/application.css" for 192.168.193.109 at 2015-04-15 11:04:09 +0100
+F, [2015-04-15T11:04:09.317201 #3115] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+F, [2015-04-15T11:04:09.364491 #3126] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:04:13.187138 #3215]  INFO -- : Started GET "/funbase/images/favicon.ico" for 192.168.193.109 at 2015-04-15 11:04:13 +0100
+F, [2015-04-15T11:04:13.238694 #3215] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:08:11.484871 #3631]  INFO -- : Started GET "/funbase/" for 192.168.193.109 at 2015-04-15 11:08:11 +0100
+I, [2015-04-15T11:08:11.529105 #3631]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-15T11:08:11.557343 #3631] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-15T11:08:11.558117 #3631] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-15T11:08:11.558283 #3631]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.5ms)
+I, [2015-04-15T11:08:11.711242 #3631]  INFO -- : Completed 200 OK in 182ms (Views: 171.2ms | ActiveRecord: 0.9ms)
+I, [2015-04-15T11:08:14.632344 #3717]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.193.109 at 2015-04-15 11:08:14 +0100
+F, [2015-04-15T11:08:14.672907 #3717] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:08:18.100430 #3805]  INFO -- : Started GET "/funbase/assets/twitter/fonts/glyphicons-halflings-regular.woff" for 192.168.193.109 at 2015-04-15 11:08:18 +0100
+F, [2015-04-15T11:08:18.276291 #3805] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/twitter/fonts/glyphicons-halflings-regular.woff"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:08:21.181695 #3893]  INFO -- : Started GET "/funbase/assets/twitter/fonts/glyphicons-halflings-regular.ttf" for 192.168.193.109 at 2015-04-15 11:08:21 +0100
+F, [2015-04-15T11:08:21.356565 #3893] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/twitter/fonts/glyphicons-halflings-regular.ttf"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-15T11:08:24.295601 #3979]  INFO -- : Started GET "/funbase/assets/twitter/fonts/glyphicons-halflings-regular.svg" for 192.168.193.109 at 2015-04-15 11:08:24 +0100
+F, [2015-04-15T11:08:24.471509 #3979] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/twitter/fonts/glyphicons-halflings-regular.svg"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+

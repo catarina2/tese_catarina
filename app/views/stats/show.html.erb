@@ -1,0 +1,30 @@
+<%- model_class = Stat -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:Number_of_Studies) %>:</strong></dt>
+  <dd><%= @stat.n_studies %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Information) %>:</strong></dt>
+  <dd><%= @stat.info %></dd>
+  <hr>
+  <dt><strong><%= model_class.human_attribute_name(:Gene_Associate) %>:</strong></dt>
+  <br/>
+  <dd><b><u><%= model_class.human_attribute_name(:Name) %>:</u></b> <%= @stat.gene.name   %></dd>
+  <dd><b><u><%= model_class.human_attribute_name(:Reference) %>:</u></b> <%= @stat.gene.reference  %></dd>
+  <dd> <%= link_to "Go to Gene", gene_path(@stat.gene.id), :class => 'btn active btn-info btn-sm glyphicon glyphicon-open'  %></dd>
+  <hr>
+  <dt><strong><%= model_class.human_attribute_name(:Mutation_Associate) %>:</strong></dt>
+  <br/>
+  <dd><b><u><%= model_class.human_attribute_name(:Nucleotide) %>:</u></b> <%= @stat.mutation.nucleotide %></dd>
+  <dd><b><u><%= model_class.human_attribute_name(:Aminoacid) %>:</u></b> <%= @stat.mutation.aminoacid %></dd>
+  <dd> <%= link_to "Go to Mutation", mutation_path(@stat.mutation.id), :class => 'btn active btn-info btn-sm glyphicon glyphicon-open'  %></dd>
+</dl>
+<hr>
+<%= link_to " Back", stats_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_stat_path(@stat), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", stat_path(@stat),
+              :method => 'delete',
+              :data => { :confirm => 'Are you sure you want delete this association?' },
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

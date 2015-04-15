@@ -1,0 +1,19 @@
+<%= form_for @organism, url:createorganism_index_path do |f|%>
+<%= error_messages_for :organism %>
+
+      <div class="panel panel-info">
+            <div class="panel-heading"><strong>New Organism</strong></div>
+            <div class="panel-body">
+         
+          <%= f.label :Name, :class => 'control-label' %>
+            <%= f.text_field :name, :class => 'form-control' %>
+            <br />
+          <%= f.label :Rate_of_organism, :class => 'control-label' %>
+            <%= f.text_field :tax_org, :class => 'form-control' %>
+            <br />
+           
+          <span style="position: relative; left: 350px;"><%= f.submit "Submit", :class => 'btn btn-sm active btn-primary'%></span>
+        
+      </div>
+    </div>
+  <%end%>

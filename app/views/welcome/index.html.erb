@@ -1,0 +1,302 @@
+<div class="center jumbotron">
+	<h1 align="center">FunBase</h1>
+	<h5 align="center"><strong>Plataforma Web para integração e análise de infecções fúngicas</strong></h5>
+	<hr>
+	<%= form_tag welcome_index_path, :method => 'get' do %>
+	  <div class="input-group">
+	  	
+	  	<span class="input-group-addon glyphicon glyphicon-search" id="sizing-addon1"></span>
+        <%= select_tag :searchtable, options_for_select([["Organisms", "Organisms"], ["Origins", "Origins"], ["Drugs", "Drugs"], ["Genes", "Genes"], ["Isolateds", "Isolateds"], ["Mutations", "Mutations"], ["Mutation/Publication", "Mutation/Publication"], ["Publications", "Publications"], ["Isolated/Drug", "Isolated/Drug"], ["Gene/Mutation", "Gene/Mutation"]], include_blank: true) %>
+  
+	    <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search here'%>
+	    <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
+	  </div>
+<%end%>
+<hr>
+	<!-- Organism-->
+	<% if @search.name == "Organism"%>
+
+			<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="2"><%= "Organisms"%></th>
+			    <tr>
+			      <th class="info"><%= "Rate" %></th>
+			      <th class="info"><%= "Name" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |organism| %>
+			      <tr>
+			        <td><%= organism.tax_org %></td>
+			        <td><%= organism.name %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="2"><%= "Don't exist that Organism" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Origin -->
+	<% elsif @search.name == "Origin"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="2"><%= "Origins"%></th>
+			    <tr>
+			      <th class="info"><%= "Laboratory Name" %></th>
+			      <th class="info"><%= "Type of Origin" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |origin| %>
+			      <tr>
+			        <td><%= origin.lab_name %></td>
+			        <td><%= origin.origin_t %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="2"><%= "Don't exist that Origin" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Drug -->
+	<% elsif @search.name == "Drug"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="4"><%= "Drugs"%></th>
+			    <tr>
+			      <th class="info"><%= "Reference" %></th>
+			      <th class="info"><%= "Name" %></th>
+			      <th class="info"><%= "Atc" %></th>
+			      <th class="info"><%= "Drugbank" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |drug| %>
+			      <tr>
+			        <td><%= drug.reference %></td>
+			        <td><%= drug.name %></td>
+			        <td><%= drug.atc %></td>
+			        <td><%= drug.drugbank %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="4"><%= "Don't exist that Drug" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Gene -->
+	<% elsif @search.name == "Gene"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="4"><%= "Genes"%></th>
+			    <tr>
+			      <th class="info"><%= "Name" %></th>
+			      <th class="info"><%= "Sequence" %></th>
+			      <th class="info"><%= "Reference" %></th>
+			      <th class="info"><%= "Isolated" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |gene| %>
+			      <tr>
+			        <td><%= gene.name %></td>
+			        <td><%= gene.sequence %></td>
+			        <td><%= gene.reference %></td>
+			        <td><%= gene.isolated.name %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="4"><%= "Don't exist that Gene" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Isolated -->
+	<% elsif @search.name == "Isolated"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="5"><%= "Isolateds"%></th>
+			    <tr>
+			      <th class="info"><%= "Name" %></th>
+			      <th class="info"><%= "Disease" %></th>
+			      <th class="info"><%= "Type of Origin" %></th>
+			      <th class="info"><%= "Laboratory of Origin" %></th>
+			      <th class="info"><%= "Organism" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |isolated| %>
+			      <tr>
+			         <td><%= isolated.name %></td>
+			        <td><%= isolated.disease %></td>
+			        <td><%= isolated.origin.origin_t %></td>
+			        <td><%= isolated.origin.lab_name %></td>
+			        <td><%= isolated.organism.name %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="5"><%= "Don't exist that Isolated" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Mutation -->
+	<% elsif @search.name == "Mutation"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="3"><%= "Mutations"%></th>
+			    <tr>
+			      <th class="info"><%= "Nucleotide" %></th>
+			      <th class="info"><%= "Aminoacid" %></th>
+			      <th class="info"><%= "HGVs" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |mutation| %>
+			      <tr>
+			        <td><%= mutation.nucleotide %></td>
+			        <td><%= mutation.aminoacid %></td>
+			        <td><%= mutation.hgvs %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="3"><%= "Don't exist that Mutation" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Mutation/publication -->
+	<% elsif @search.name == "Mutpub"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="3"><%= "Mutation/Publication"%></th>
+			    <tr>
+			      <th class="info"><%= "Nucleotide" %></th>
+			      <th class="info"><%= "Aminoacid" %></th>
+			      <th class="info"><%= "Related Publication" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |mutpub| %>
+			      <tr>
+			        <td><%= mutpub.mutation.nucleotide %></td>
+			        <td><%= mutpub.mutation.aminoacid %></td>
+			        <td><%= mutpub.publication.title %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="3"><%= "Don't exist that Association" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Publication -->
+	<% elsif @search.name == "Publication"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="4"><%= "Publications"%></th>
+			    <tr>
+			      <th class="info"><%= "Author" %></th>
+			      <th class="info"><%= "Title" %></th>
+			      <th class="info"><%= "Date" %></th>
+			      <th class="info"><%= "Journal" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |publication| %>
+			      <tr>
+			        <td><%= publication.author %></td>
+			        <td><%= publication.title %></td>
+			        <td><%= publication.date %></td>
+			        <td><%= publication.journal %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="4"><%= "Don't exist that Publication" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Drug/isolated -->
+	<% elsif @search.name == "Resist"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="4"><%= "Drug/Isolated"%></th>
+			    <tr>
+			      <th class="info"><%= "Mic" %></th>
+			      <th class="info"><%= "Drug's reference" %></th>
+			      <th class="info"><%= "Drug's name" %></th>
+			      <th class="info"><%= "Isolated's name" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |resist| %>
+			      <tr>
+			        <td><%= resist.mic %></td>
+			        <td><%= resist.drug.reference %></td>
+			        <td><%= resist.drug.name %></td>
+			        <td><%= resist.isolated.name %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="4"><%= "Don't exist that Association" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<!-- Gene/Mutation -->
+	<% elsif @search.name == "Stat"%>
+		<table class="table table-striped">
+			  <thead>
+			  	<th class="info2" colspan="4"><%= "Gene/Mutation"%></th>
+			    <tr>
+			      <th class="info"><%= "Information" %></th>
+			      <th class="info"><%= "Gene's name" %></th>
+			      <th class="info"><%= "Nucleotide's mutation" %></th>
+			      <th class="info"><%= "Aminoacid's mutation" %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% if @search.any? == true %>
+			    <% @search.each do |stat| %>
+			      <tr>
+			        <td><%= stat.info %></td>
+			        <td><%= stat.gene.name %></td>
+			        <td><%= stat.mutation.nucleotide %></td>
+			        <td><%= stat.mutation.aminoacid %></td>
+			      </tr>
+			    <% end %>
+			    <%else%>
+			    	<tr>
+			    		<td colspan="4"><%= "Don't exist that Association" %></td>
+			    	</tr>
+			    <%end%>
+			  </tbody>
+			</table>
+	<%end%>
+	<div class="pager btn-sm" align="center">
+				  <%= will_paginate @search %>
+     </div>
+</div>
+	

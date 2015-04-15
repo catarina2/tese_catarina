@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference: MyString
+  mic: 1
+  drug_id: 
+  isolated_id: 
+
+two:
+  reference: MyString
+  mic: 1
+  drug_id: 
+  isolated_id: 

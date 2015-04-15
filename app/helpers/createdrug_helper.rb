@@ -1,0 +1,2 @@
+module CreatedrugHelper
+end

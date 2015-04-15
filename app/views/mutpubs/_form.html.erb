@@ -1,0 +1,45 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Association between Mutation and Publication</strong></div>
+<div class="panel-body">
+<%= form_for @mutpub, :html => { :class => "form-horizontal mutpub" } do |f| %>
+
+    <% if @mutpub.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@mutpub.errors.count, "error") %> prohibited this mutpub from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @mutpub.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <% if @n == nil%>
+        <%= f.label :Mutation_Associate, :class => 'control-label' %>
+        <%= f.collection_select :mutation_id, @mutations, :id, :allmut, prompt: true, :class => 'form-control' %>
+    <%else%>
+        <%= f.label :Mutation, :class => 'control-label' %>
+        <%= f.collection_select :mutation_id, @mutations, :id, :allmut, :selected => "#{@n}"%>
+    <%end%>
+  </div>
+  <div class="control-group">
+    <% if @nn == nil%>
+       <%= f.label :Publication_Associate, :class => 'control-label' %>
+       <%= f.collection_select :publication_id, @publications, :id, :title, prompt: true, :class => 'form-control' %>
+    <%else%>
+        <%= f.label :Publication, :class => 'control-label' %>
+        <%= f.collection_select :publication_id, @publications, :id, :title, :selected => "#{@nn}"%>
+    <%end%>
+  </div>
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            mutpubs_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
+<% end %>
+</div>
+</div>

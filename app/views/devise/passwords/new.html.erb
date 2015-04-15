@@ -1,0 +1,21 @@
+<h2>Forgot your password?</h2>
+<hr>
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Put your email</strong></div>
+<div class="panel-body">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email, :class => 'control-label'%><br />
+    <%= f.email_field :email, autofocus: true, :class => 'form-control' %>
+  </div>
+  <hr>
+  <div class="actions">
+  	<%= f.submit "Send me reset password instructions", :class => 'btn active btn-default'%>
+</div>
+  
+<% end %>
+</div>
+</div>
+<%= render "devise/shared/links" %>

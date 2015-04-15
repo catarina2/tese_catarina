@@ -1,0 +1,65 @@
+<%- model_class = Drug -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:Reference) %>:</strong></dt>
+  <dd><%= @drug.reference %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Name) %>:</strong></dt>
+  <dd><%= @drug.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ATC) %>:</strong></dt>
+  <dd><%= @drug.atc %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:DrugBank) %>:</strong></dt>
+  <dd><%= @drug.drugbank %></dd>
+   <hr>
+    <div class="panel panel-info">
+      <div class="panel-heading" style="font-size: 15px" align="center"><strong>Isolateds with resistance to this drug: </strong></div>
+      
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><%= model_class.human_attribute_name(:MIC) %></th>
+                <th><%= model_class.human_attribute_name(:Name) %></th>
+                <th><%= model_class.human_attribute_name(:Disease) %></th>
+                <th><%=t '.actions', :default => t("helpers.actions") %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if @drug.isolateds.any? == true %>
+              <% @drug.resists.each do |isolated| %>
+                <tr>
+                  <td><%= isolated.mic %></td>
+                  <td><%= isolated.isolated.name %></td>
+                  <td><%= isolated.isolated.disease %></td>
+                  <td>
+                    <%= link_to " Go to Isolated", isolated_path(isolated.isolated.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-open' %><br/>
+                    <%= link_to " Show association", resist_path(isolated.id), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+                  </td>
+                </tr>
+              <% end %>
+              <%else%>
+                <tr>
+                  <td colspan="4"><%= "This drug don't have isolated associated"%></td>
+                </tr>
+              <%end%>
+
+            </tbody>
+            </table>
+        </div>
+</dl>
+             <%= form_tag new_resist_path, :method => 'get' do %>
+                      <div class="input-group">
+                        <strong><%=" Do you need a new association with Drug ID   "%>
+                        <%= text_field_tag :new, @drug.id, :readonly => true, :class => 'textbox' %></strong>
+                        <%= submit_tag "New Association", :name=> nil, :class => 'btn active btn-sm btn-primary' %>
+                      </div>
+            <%end%>
+
+<hr>
+<%= link_to " Back", drugs_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-share-alt'  %>
+<%= link_to " Edit", edit_drug_path(@drug), :class => 'btn active btn-sm btn-default glyphicon glyphicon-edit' %>
+<%= link_to " Delete", drug_path(@drug),
+              :method => 'delete',
+              :data => { :confirm => 'Are you sure you want delete the Drug?' },
+              :class => 'btn active btn-sm btn-danger glyphicon glyphicon-remove' %>

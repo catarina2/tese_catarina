@@ -1,0 +1,41 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Origin</strong></div>
+<div class="panel-body">
+<%= form_for @origin, :html => { :class => "form-horizontal origin" } do |f| %>
+
+    <% if @origin.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@origin.errors.count, "error") %> prohibited this origin from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @origin.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :Type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :origin_t, options_for_select([["In Vitro", "In Vitro"], ["sangue", "sangue"]]), :class => 'form-control' %>
+    </div>
+    <%= error_span(@origin[:origin_t]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Name_of_Laboratory, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lab_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@origin[:lab_name]) %>
+  </div>
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            origins_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
+<% end %>
+</div>
+</div>

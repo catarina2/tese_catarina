@@ -1,0 +1,64 @@
+<div class="panel panel-info">
+<div class="panel-heading"><strong>Isolated</strong></div>
+<div class="panel-body">
+<%= form_for @isolated, :html => { :class => "form-horizontal isolated" } do |f| %>
+
+    <% if @isolated.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@isolated.errors.count, "error") %> prohibited this isolated from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @isolated.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :Name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Disease, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :disease, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:disease]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Number_of_Samples, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :n_samples, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:n_samples]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :Origin, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :origin_id, @origins, :id, :all, prompt: true, :class => 'form-control' %>
+    </div>
+    <%= error_span(@isolated[:origin_id]) %>
+  </div>
+  <div class="control-group">
+    <% if @n == nil%>
+         <%= f.label :Organism, :class => 'control-label' %>
+         <%= f.collection_select :organism_id, @organisms, :id, :name, prompt: true, :class => 'form-control' %>
+    <%else%>
+         <%= f.label :Organism, :class => 'control-label' %>
+         <%= f.collection_select :organism_id, @organisms, :id, :name, :selected => "#{@n}" %>
+    <%end%>
+  </div>
+  <hr>
+  <%= f.submit "Submit", :class => 'btn active btn-sm btn-primary'%>
+  <%= link_to " Cancel",
+            isolateds_path, :class => 'btn active btn-sm btn-default glyphicon glyphicon-remove' %>
+<% end %>
+</div>
+</div>

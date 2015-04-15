@@ -1,0 +1,24 @@
+
+     <div class="panel panel-warning">
+      <div class="panel-heading"><strong>Add a Publication</strong></div>
+      <div class="panel-body">
+        
+           <p>
+          <%= f.label :Author, :class => 'control-label' %><br />
+          <%= f.text_field :author, :class => 'form-control' %><br />
+           </p>
+            <p>
+          <%= f.label :Title, :class => 'control-label' %><br />
+          <%= f.text_field :title, :class => 'form-control' %><br />
+           </p>
+           <p id="date">
+          <%= f.label :Date, :class => 'control-label' %><br />
+           <%= f.date_select :date, :class => 'form-control' %>
+           </p>
+           <p>
+          <%= f.label :Journal, :class => 'control-label' %><br />
+          <%= f.text_field :journal, :class => 'form-control' %><br />
+           </p>
+      </div>
+    </div>
+    <hr>

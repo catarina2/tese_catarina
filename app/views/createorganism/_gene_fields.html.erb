@@ -1,0 +1,67 @@
+ <div class="panel panel-warning" >
+      <div class="panel-heading"><strong>Add new Gene to this Isolated</strong></div>
+      <div class="panel-body">
+               <p>
+              <div class="control-group">
+                  <%= f.label :Name, :class => 'control-label' %><br />
+                  <div class="controls">
+                  <%= f.text_field :name, :class => 'form-control' %><br />
+                  </div>
+                 
+                </div>
+               </p>
+               <p>
+                <div class="control-group">
+                  <%= f.label :Sequence, :class => 'control-label' %><br />
+                  <div class="controls">
+                  <%= f.text_field :sequence, :class => 'form-control' %><br />
+                  </div>
+               
+                </div>
+               </p>
+               <p>
+                <div class="control-group">
+                  <%= f.label :Reference, :class => 'control-label' %><br />
+                  <div class="controls">
+                  <%= f.text_field :reference, :class => 'form-control' %><br />
+                  </div>
+                 
+                </div>
+               </p>
+               <p>
+              <div class="control-group">
+                  <%= f.label :Uniprot, :class => 'control-label' %><br />
+                  <div class="controls">
+                  <%= f.text_field :uniprot, :class => 'form-control' %><br />
+                  </div>
+               
+                </div>
+               </p>
+               <p>
+              <div class="control-group">
+                  <%= f.label :Symbol, :class => 'control-label'  %><br />
+                  <div class="controls">
+                  <%= f.text_field :symbol, :class => 'form-control' %><br />
+                  </div>
+                  
+                </div>
+               </p>
+           <hr>
+           <div class="panel panel-info" >
+            <div class="panel-heading"><strong>Do you want to add a Mutation to this Gene?</strong></div>
+            <div class="panel-body">
+            <div id="x">
+               <%= f.fields_for :stats do |builder| %>
+               <%= render 'stat_fields', f: builder%>
+               <%end%>
+           </div>
+           <%= link_to_add_fields " Add a Mutation", f, :stats %>
+         </div>
+         </div>
+      </div>
+    </div>
+    <hr>
+
+    
+
+   

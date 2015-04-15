@@ -1,0 +1,58 @@
+<%- model_class = Stat -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<%= form_tag stats_path, :method => 'get' do %>
+  <div class="input-group">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+    <%= text_field_tag :search, params[:search], :class => 'form-control', :placeholder => 'Search the Gene or Mutation here'%>
+    <span class="input-group-addon" id="sizing-addon1"><%= submit_tag "Search", :name=> nil %></span>
+  </div>
+<%end%>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="info"><%= model_class.human_attribute_name(:ID) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Number_of_Studies) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Information) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Gene_Associate) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Nucleotide_of_Mutation) %></th>
+      <th class="info"><%= model_class.human_attribute_name(:Aminoacid_of_Mutation) %></th>
+      <th class="info"><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @stats.any? == true %>
+    <% @stats.each do |stat| %>
+      <tr>
+        <td><%= link_to stat.id, stat_path(stat) %></td>
+        <td><%= stat.n_studies %></td>
+        <td><%= stat.info %></td>
+        <td><%= stat.gene.name %></td>
+        <td><%= stat.mutation.nucleotide %></td>
+        <td><%= stat.mutation.aminoacid %></td>
+        <td>
+          <%= link_to " show", stat_path(stat), :class => 'btn active btn-default btn-xs glyphicon glyphicon-new-window' %>
+          <%= link_to " edit", edit_stat_path(stat), :class => 'btn active btn-default btn-xs glyphicon glyphicon-edit' %>
+          <%= link_to " Delete", stat_path(stat),
+                      :method => :delete,
+                      :data => { :confirm => 'Are you sure you want delete this association?'},
+                      :class => 'btn active btn-xs btn-danger glyphicon glyphicon-remove' %>
+        </td>
+      </tr>
+    <% end %>
+    <% else %>
+      <tr>
+          <td colspan="7"><%= "Don't exist any association between genes and mutations" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pager btn-sm" align="center">
+  <%= will_paginate @stats %>
+</div>
+<hr>
+<%= link_to " New Association",
+            new_stat_path,
+            :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>
