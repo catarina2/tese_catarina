@@ -16,7 +16,6 @@ class DrugsController < ApplicationController
       format.html
       format.csv { send_data @drug.to_csv}
     end
-
   end
 
   # GET /drugs/1
@@ -72,8 +71,6 @@ class DrugsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
 
 def import
   Drug.import(params[:file])
