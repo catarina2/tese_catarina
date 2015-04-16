@@ -3,6 +3,14 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+<%= form_tag import_drugs_path, multipart: true do %>
+<div class="input-group">
+<span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+ </div>
+<% end %> 
+ 
+
+<hr>
 <%= form_tag drugs_path, :method => 'get' do %>
   <div class="input-group">
     <span class="input-group-addon glyphicon glyphicon-search"></span>
@@ -56,3 +64,4 @@
 <%= link_to " New Drug",
             new_drug_path,
             :class => 'btn active btn-sm btn-primary glyphicon glyphicon-plus-sign' %>
+<%= link_to " Csv", drugs_path(format: "csv"), :class => 'btn active btn-default btn-sm glyphicon glyphicon-download-alt'%>

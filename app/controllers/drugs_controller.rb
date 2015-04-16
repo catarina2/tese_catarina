@@ -11,6 +11,11 @@ class DrugsController < ApplicationController
       @drugs = Drug.all.order(:name, :reference).paginate(:per_page => 3, :page => params[:page])
     end
     
+    @drug = Drug.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @drug.to_csv}
+    end
 
   end
 
@@ -67,6 +72,15 @@ class DrugsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
+def import
+  Drug.import(params[:file])
+  redirect_to drugs_path, notice: "Drugs imported."
+end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

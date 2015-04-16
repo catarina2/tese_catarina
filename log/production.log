@@ -472,3 +472,491 @@ ActionController::RoutingError (No route matches [GET] "/assets/twitter/fonts/gl
   /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
 
 
+I, [2015-04-16T12:16:35.215343 #8960]  INFO -- : Started GET "/funbase/" for 192.168.63.133 at 2015-04-16 12:16:35 +0100
+I, [2015-04-16T12:16:35.260652 #8960]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:16:35.289215 #8960] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:16:35.290090 #8960] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:16:35.290345 #8960]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (14.4ms)
+I, [2015-04-16T12:16:35.468193 #8960]  INFO -- : Completed 200 OK in 207ms (Views: 197.0ms | ActiveRecord: 1.2ms)
+I, [2015-04-16T12:16:38.645865 #9046]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.63.133 at 2015-04-16 12:16:38 +0100
+F, [2015-04-16T12:16:38.686389 #9046] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:16:41.779448 #9134]  INFO -- : Started GET "/funbase/images/favicon.ico" for 192.168.63.133 at 2015-04-16 12:16:41 +0100
+F, [2015-04-16T12:16:41.820939 #9134] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:16:54.681404 #9224]  INFO -- : Started GET "/funbase/organisms" for 192.168.63.133 at 2015-04-16 12:16:54 +0100
+I, [2015-04-16T12:16:54.726059 #9224]  INFO -- : Processing by OrganismsController#index as HTML
+D, [2015-04-16T12:16:54.764252 #9224] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:16:54.765057 #9224] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:16:54.765453 #9224]  INFO -- :   Rendered organisms/index.html.erb within layouts/application (23.5ms)
+I, [2015-04-16T12:16:54.924030 #9224]  INFO -- : Completed 200 OK in 198ms (Views: 186.9ms | ActiveRecord: 0.9ms)
+I, [2015-04-16T12:17:05.087844 #9325]  INFO -- : Started GET "/funbase/origins" for 192.168.63.133 at 2015-04-16 12:17:05 +0100
+I, [2015-04-16T12:17:05.150378 #9325]  INFO -- : Processing by OriginsController#index as HTML
+D, [2015-04-16T12:17:05.201829 #9325] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `origins`[0m
+D, [2015-04-16T12:17:05.202889 #9325] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `origins`
+I, [2015-04-16T12:17:05.203505 #9325]  INFO -- :   Rendered origins/index.html.erb within layouts/application (34.8ms)
+I, [2015-04-16T12:17:05.421182 #9325]  INFO -- : Completed 200 OK in 271ms (Views: 258.5ms | ActiveRecord: 1.9ms)
+I, [2015-04-16T12:17:11.645365 #9413]  INFO -- : Started GET "/funbase/isolateds" for 192.168.63.133 at 2015-04-16 12:17:11 +0100
+I, [2015-04-16T12:17:11.705966 #9413]  INFO -- : Processing by IsolatedsController#index as HTML
+D, [2015-04-16T12:17:11.753668 #9413] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `isolateds`[0m
+D, [2015-04-16T12:17:11.754556 #9413] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `isolateds`
+I, [2015-04-16T12:17:11.755033 #9413]  INFO -- :   Rendered isolateds/index.html.erb within layouts/application (30.9ms)
+I, [2015-04-16T12:17:11.963487 #9413]  INFO -- : Completed 200 OK in 257ms (Views: 243.6ms | ActiveRecord: 1.9ms)
+I, [2015-04-16T12:17:26.077983 #9506]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:17:26 +0100
+I, [2015-04-16T12:17:26.127902 #9506]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:17:26.167886 #9506] DEBUG -- :   [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `drugs`[0m
+D, [2015-04-16T12:17:26.168749 #9506] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `drugs`
+I, [2015-04-16T12:17:26.169115 #9506]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (24.5ms)
+I, [2015-04-16T12:17:26.351107 #9506]  INFO -- : Completed 200 OK in 223ms (Views: 211.3ms | ActiveRecord: 1.3ms)
+I, [2015-04-16T12:17:33.611601 #9595]  INFO -- : Started GET "/funbase/genes" for 192.168.63.133 at 2015-04-16 12:17:33 +0100
+I, [2015-04-16T12:17:33.678333 #9595]  INFO -- : Processing by GenesController#index as HTML
+D, [2015-04-16T12:17:33.735700 #9595] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `genes`[0m
+D, [2015-04-16T12:17:33.736789 #9595] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `genes`
+I, [2015-04-16T12:17:33.737396 #9595]  INFO -- :   Rendered genes/index.html.erb within layouts/application (37.5ms)
+I, [2015-04-16T12:17:33.979666 #9595]  INFO -- : Completed 200 OK in 301ms (Views: 286.3ms | ActiveRecord: 1.9ms)
+I, [2015-04-16T12:17:37.240459 #9506]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:17:37 +0100
+I, [2015-04-16T12:17:37.241993 #9506]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:17:37.247536 #9506] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `drugs`[0m
+D, [2015-04-16T12:17:37.248176 #9506] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `drugs`
+I, [2015-04-16T12:17:37.248401 #9506]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (4.4ms)
+I, [2015-04-16T12:17:37.262368 #9506]  INFO -- : Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.3ms)
+I, [2015-04-16T12:17:54.562574 #9690]  INFO -- : Started GET "/funbase/drugs/new" for 192.168.63.133 at 2015-04-16 12:17:54 +0100
+I, [2015-04-16T12:17:54.615660 #9690]  INFO -- : Processing by DrugsController#new as HTML
+I, [2015-04-16T12:17:54.631203 #9690]  INFO -- : Redirected to http://biodatacenter.ieeta.pt:6980/funbase/welcome/index
+I, [2015-04-16T12:17:54.631368 #9690]  INFO -- : Filter chain halted as :authorize rendered or redirected
+I, [2015-04-16T12:17:54.631824 #9690]  INFO -- : Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+I, [2015-04-16T12:17:57.553281 #9690]  INFO -- : Started GET "/funbase/drugs/new" for 192.168.63.133 at 2015-04-16 12:17:57 +0100
+I, [2015-04-16T12:17:57.554396 #9690]  INFO -- : Processing by DrugsController#new as HTML
+I, [2015-04-16T12:17:57.555630 #9690]  INFO -- : Redirected to http://biodatacenter.ieeta.pt:6980/funbase/welcome/index
+I, [2015-04-16T12:17:57.555761 #9690]  INFO -- : Filter chain halted as :authorize rendered or redirected
+I, [2015-04-16T12:17:57.555902 #9690]  INFO -- : Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+I, [2015-04-16T12:17:58.045677 #9779]  INFO -- : Started GET "/funbase/welcome/index" for 192.168.63.133 at 2015-04-16 12:17:58 +0100
+I, [2015-04-16T12:17:58.097715 #9779]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:17:58.132081 #9779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:17:58.132830 #9779] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:17:58.132997 #9779]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (16.5ms)
+I, [2015-04-16T12:17:58.334656 #9779]  INFO -- : Completed 200 OK in 237ms (Views: 224.0ms | ActiveRecord: 1.1ms)
+I, [2015-04-16T12:17:58.337220 #9779]  INFO -- : Started GET "/funbase/welcome/index" for 192.168.63.133 at 2015-04-16 12:17:58 +0100
+I, [2015-04-16T12:17:58.338175 #9779]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:17:58.340598 #9779] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:17:58.341138 #9779] DEBUG -- :   [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:17:58.341277 #9779]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (2.0ms)
+I, [2015-04-16T12:17:58.354069 #9779]  INFO -- : Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+I, [2015-04-16T12:18:04.839114 #9868]  INFO -- : Started GET "/funbase/users/sign_in" for 192.168.63.133 at 2015-04-16 12:18:04 +0100
+I, [2015-04-16T12:18:04.893176 #9868]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-04-16T12:18:05.068595 #9868]  INFO -- :   Rendered devise/shared/_links.html.erb (8.8ms)
+I, [2015-04-16T12:18:05.068761 #9868]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (59.7ms)
+I, [2015-04-16T12:18:05.230640 #9868]  INFO -- : Completed 200 OK in 337ms (Views: 231.5ms | ActiveRecord: 15.7ms)
+I, [2015-04-16T12:32:51.686450 #10776]  INFO -- : Started GET "/funbase/" for 192.168.63.133 at 2015-04-16 12:32:51 +0100
+I, [2015-04-16T12:32:51.730426 #10776]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:32:51.758424 #10776] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:32:51.759206 #10776] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:32:51.759451 #10776]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.9ms)
+I, [2015-04-16T12:32:51.915211 #10776]  INFO -- : Completed 200 OK in 185ms (Views: 174.4ms | ActiveRecord: 1.0ms)
+I, [2015-04-16T12:32:54.891196 #10862]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.63.133 at 2015-04-16 12:32:54 +0100
+F, [2015-04-16T12:32:54.932119 #10862] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:32:58.231310 #11018]  INFO -- : Started GET "/funbase/images/favicon.ico" for 192.168.63.133 at 2015-04-16 12:32:58 +0100
+F, [2015-04-16T12:32:58.314565 #11018] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:33:00.849924 #11038]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:33:00 +0100
+I, [2015-04-16T12:33:00.893863 #11038]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:33:00.950545 #11038] DEBUG -- :   [1m[36mDrug Load (22.8ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:33:00.957437 #11038] DEBUG -- :   [1m[35mDrug Load (0.3ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:33:00.966954 #11038]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (57.1ms)
+I, [2015-04-16T12:33:00.967181 #11038]  INFO -- : Completed 500 Internal Server Error in 73ms
+F, [2015-04-16T12:33:00.968778 #11038] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x00000002959280>:0x0000000297b9c0>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__2651418583295515198_21778020'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:33:01.163771 #11038]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:33:01 +0100
+I, [2015-04-16T12:33:01.165033 #11038]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:33:01.171024 #11038] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:33:01.172089 #11038] DEBUG -- :   [1m[35mDrug Load (0.2ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:33:01.182622 #11038]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (15.6ms)
+I, [2015-04-16T12:33:01.182762 #11038]  INFO -- : Completed 500 Internal Server Error in 18ms
+F, [2015-04-16T12:33:01.184118 #11038] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x00000002959280>:0x00000003d5f928>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__2651418583295515198_21778020'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:33:11.317578 #11038]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:33:11 +0100
+I, [2015-04-16T12:33:11.318909 #11038]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:33:11.325070 #11038] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:33:11.326167 #11038] DEBUG -- :   [1m[35mDrug Load (0.2ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:33:11.335248 #11038]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (14.4ms)
+I, [2015-04-16T12:33:11.335436 #11038]  INFO -- : Completed 500 Internal Server Error in 16ms
+F, [2015-04-16T12:33:11.336756 #11038] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x00000002959280>:0x00000003e78f58>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__2651418583295515198_21778020'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:33:11.736261 #11038]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:33:11 +0100
+I, [2015-04-16T12:33:11.737498 #11038]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:33:11.743522 #11038] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:33:11.744533 #11038] DEBUG -- :   [1m[35mDrug Load (0.2ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:33:11.754081 #11038]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (14.8ms)
+I, [2015-04-16T12:33:11.754224 #11038]  INFO -- : Completed 500 Internal Server Error in 17ms
+F, [2015-04-16T12:33:11.755630 #11038] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x00000002959280>:0x00000003f73b88>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__2651418583295515198_21778020'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:35:17.289977 #11229]  INFO -- : Started GET "/funbase/" for 192.168.63.133 at 2015-04-16 12:35:17 +0100
+I, [2015-04-16T12:35:17.334189 #11229]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:35:17.364348 #11229] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:35:17.365180 #11229] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:35:17.365374 #11229]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (15.6ms)
+I, [2015-04-16T12:35:17.520363 #11229]  INFO -- : Completed 200 OK in 186ms (Views: 175.3ms | ActiveRecord: 0.9ms)
+I, [2015-04-16T12:35:20.514140 #11317]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.63.133 at 2015-04-16 12:35:20 +0100
+F, [2015-04-16T12:35:20.555242 #11317] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:35:25.976474 #11405]  INFO -- : Started GET "/funbase/isolateds" for 192.168.63.133 at 2015-04-16 12:35:25 +0100
+I, [2015-04-16T12:35:26.020518 #11405]  INFO -- : Processing by IsolatedsController#index as HTML
+D, [2015-04-16T12:35:26.057959 #11405] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `isolateds`[0m
+D, [2015-04-16T12:35:26.058710 #11405] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `isolateds`
+I, [2015-04-16T12:35:26.059103 #11405]  INFO -- :   Rendered isolateds/index.html.erb within layouts/application (22.5ms)
+I, [2015-04-16T12:35:26.208961 #11405]  INFO -- : Completed 200 OK in 188ms (Views: 177.2ms | ActiveRecord: 0.9ms)
+I, [2015-04-16T12:35:29.875351 #11493]  INFO -- : Started GET "/funbase/origins" for 192.168.63.133 at 2015-04-16 12:35:29 +0100
+I, [2015-04-16T12:35:29.962801 #11493]  INFO -- : Processing by OriginsController#index as HTML
+I, [2015-04-16T12:35:30.023808 #11500]  INFO -- : Started GET "/funbase/origins" for 192.168.63.133 at 2015-04-16 12:35:30 +0100
+D, [2015-04-16T12:35:30.035593 #11493] DEBUG -- :   [1m[36m (1.7ms)[0m  [1mSELECT COUNT(*) FROM `origins`[0m
+D, [2015-04-16T12:35:30.036360 #11493] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `origins`
+I, [2015-04-16T12:35:30.036782 #11493]  INFO -- :   Rendered origins/index.html.erb within layouts/application (36.4ms)
+I, [2015-04-16T12:35:30.109903 #11500]  INFO -- : Processing by OriginsController#index as HTML
+D, [2015-04-16T12:35:30.188604 #11500] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `origins`[0m
+D, [2015-04-16T12:35:30.189430 #11500] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `origins`
+I, [2015-04-16T12:35:30.189851 #11500]  INFO -- :   Rendered origins/index.html.erb within layouts/application (42.2ms)
+I, [2015-04-16T12:35:30.342278 #11493]  INFO -- : Completed 200 OK in 379ms (Views: 350.3ms | ActiveRecord: 6.2ms)
+I, [2015-04-16T12:35:30.422563 #11500]  INFO -- : Completed 200 OK in 312ms (Views: 288.2ms | ActiveRecord: 0.9ms)
+I, [2015-04-16T12:35:30.536609 #11317]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.63.133 at 2015-04-16 12:35:30 +0100
+F, [2015-04-16T12:35:30.543661 #11317] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:35:33.438227 #11405]  INFO -- : Started GET "/funbase/isolateds" for 192.168.63.133 at 2015-04-16 12:35:33 +0100
+I, [2015-04-16T12:35:33.439772 #11405]  INFO -- : Processing by IsolatedsController#index as HTML
+D, [2015-04-16T12:35:33.445712 #11405] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `isolateds`[0m
+D, [2015-04-16T12:35:33.446521 #11405] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `isolateds`
+I, [2015-04-16T12:35:33.446869 #11405]  INFO -- :   Rendered isolateds/index.html.erb within layouts/application (5.0ms)
+I, [2015-04-16T12:35:33.459611 #11405]  INFO -- : Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+I, [2015-04-16T12:35:38.516641 #11590]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:35:38 +0100
+I, [2015-04-16T12:35:38.560828 #11590]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:35:38.595004 #11590] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:35:38.598610 #11590] DEBUG -- :   [1m[35mDrug Load (0.1ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:35:38.608170 #11590]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (31.5ms)
+I, [2015-04-16T12:35:38.608403 #11590]  INFO -- : Completed 500 Internal Server Error in 47ms
+F, [2015-04-16T12:35:38.609942 #11590] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x000000024f8b50>:0x00000002518798>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__4348784800854028459_19512920'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:35:38.702311 #11590]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:35:38 +0100
+I, [2015-04-16T12:35:38.703706 #11590]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:35:38.708816 #11590] DEBUG -- :   [1m[36mDrug Load (0.1ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:35:38.709489 #11590] DEBUG -- :   [1m[35mDrug Load (0.1ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:35:38.718391 #11590]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (12.7ms)
+I, [2015-04-16T12:35:38.718577 #11590]  INFO -- : Completed 500 Internal Server Error in 15ms
+F, [2015-04-16T12:35:38.719932 #11590] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x000000024f8b50>:0x000000039063e0>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__4348784800854028459_19512920'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:40:00.610883 #11820]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:40:00 +0100
+I, [2015-04-16T12:40:00.655361 #11820]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:40:00.690075 #11820] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:40:00.693779 #11820] DEBUG -- :   [1m[35mDrug Load (0.1ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:40:00.703466 #11820]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (31.8ms)
+I, [2015-04-16T12:40:00.703728 #11820]  INFO -- : Completed 500 Internal Server Error in 48ms
+F, [2015-04-16T12:40:00.705222 #11820] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x0000000382ee68>:0x00000003840578>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb__2606137668303165781_29555900'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:40:08.059579 #11910]  INFO -- : Started GET "/funbase/" for 192.168.63.133 at 2015-04-16 12:40:08 +0100
+I, [2015-04-16T12:40:08.102872 #11910]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:40:08.130804 #11910] DEBUG -- :   [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:40:08.131631 #11910] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:40:08.131829 #11910]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.6ms)
+I, [2015-04-16T12:40:08.281001 #11910]  INFO -- : Completed 200 OK in 178ms (Views: 167.2ms | ActiveRecord: 1.1ms)
+I, [2015-04-16T12:40:11.143916 #11998]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.63.133 at 2015-04-16 12:40:11 +0100
+F, [2015-04-16T12:40:11.184075 #11998] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:42:30.274595 #12173]  INFO -- : Started GET "/funbase/" for 192.168.63.133 at 2015-04-16 12:42:30 +0100
+I, [2015-04-16T12:42:30.318764 #12173]  INFO -- : Processing by WelcomeController#index as HTML
+D, [2015-04-16T12:42:30.347057 #12173] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `organisms`[0m
+D, [2015-04-16T12:42:30.347867 #12173] DEBUG -- :   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `organisms`
+I, [2015-04-16T12:42:30.348067 #12173]  INFO -- :   Rendered welcome/index.html.erb within layouts/application (13.7ms)
+I, [2015-04-16T12:42:30.500153 #12173]  INFO -- : Completed 200 OK in 181ms (Views: 170.5ms | ActiveRecord: 0.8ms)
+I, [2015-04-16T12:42:33.508477 #12261]  INFO -- : Started GET "/funbase/javascripts/defaults.js" for 192.168.63.133 at 2015-04-16 12:42:33 +0100
+F, [2015-04-16T12:42:33.550093 #12261] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/rack/thread_handler_extension.rb:85:in `process_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/request_handler.rb:414:in `block (3 levels) in start_threads'
+  /usr/lib/ruby/vendor_ruby/phusion_passenger/utils.rb:111:in `block in create_thread_and_abort_on_exception'
+
+
+I, [2015-04-16T12:42:40.538374 #12349]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:42:40 +0100
+I, [2015-04-16T12:42:40.582033 #12349]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:42:40.616468 #12349] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:42:40.620190 #12349] DEBUG -- :   [1m[35mDrug Load (0.1ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:42:40.629923 #12349]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (31.9ms)
+I, [2015-04-16T12:42:40.630181 #12349]  INFO -- : Completed 500 Internal Server Error in 48ms
+F, [2015-04-16T12:42:40.631751 #12349] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x000000043d7440>:0x000000043e22a0>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb___3748779607489271411_35626920'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
+I, [2015-04-16T12:42:41.405322 #12349]  INFO -- : Started GET "/funbase/drugs" for 192.168.63.133 at 2015-04-16 12:42:41 +0100
+I, [2015-04-16T12:42:41.406763 #12349]  INFO -- : Processing by DrugsController#index as HTML
+D, [2015-04-16T12:42:41.413178 #12349] DEBUG -- :   [1m[36mDrug Load (0.2ms)[0m  [1mSELECT  `drugs`.* FROM `drugs`  ORDER BY `drugs`.`name` ASC, `drugs`.`reference` ASC LIMIT 3 OFFSET 0[0m
+D, [2015-04-16T12:42:41.414221 #12349] DEBUG -- :   [1m[35mDrug Load (0.2ms)[0m  SELECT `drugs`.* FROM `drugs`
+I, [2015-04-16T12:42:41.423886 #12349]  INFO -- :   Rendered drugs/index.html.erb within layouts/application (14.9ms)
+I, [2015-04-16T12:42:41.424030 #12349]  INFO -- : Completed 500 Internal Server Error in 17ms
+F, [2015-04-16T12:42:41.425344 #12349] FATAL -- : 
+ActionView::Template::Error (undefined local variable or method `import_drugs_path' for #<#<Class:0x000000043d7440>:0x0000000570c740>):
+    3:   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    4: </div>
+    5: 
+    6: <%= form_tag import_drugs_path, multipart: true do %>
+    7: <div class="input-group">
+    8: <span class="input-group-addon" id="sizing-addon1"><%= file_field_tag :file%><%= submit_tag "Import"%></span>
+    9:  </div>
+  app/views/drugs/index.html.erb:6:in `_app_views_drugs_index_html_erb___3748779607489271411_35626920'
+  app/controllers/drugs_controller.rb:15:in `index'
+
+
